@@ -61,22 +61,6 @@
         }; \
     };
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-        combo_left_rals {
-            timeout-ms = <50>;
-            key-positions = <17 29>;
-            bindings = <&kp RA(LSHFT)>;
-        };
-        combo_right_rals {
-            timeout-ms = <50>;
-            key-positions = <18 30>;
-            bindings = <&kp RA(LSHFT)>;
-        };
-    };
-};
-
 #define HYPER(x) LC(LA(LS(LG(x))))
 
 #define QUICK_TAP_MS 175
@@ -86,10 +70,6 @@
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35  // right hand
 #define KEYS_MOD_L 14 15 16
 #define KEYS_MOD_R 19 20 21 
-
-ZMK_BEHAVIOR(m_st, macro, bindings = <&macro_tap &kp S &kp T>;)
-ZMK_BEHAVIOR(m_sr, macro, bindings = <&macro_tap &kp S &kp R>;)
-ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
     / { \
@@ -584,8 +564,8 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 			label = "symbol";
                        bindings = <
 &trans   &trans   &trans   &trans   &trans   &trans   &none    &lpar   &rpar  &fslh  &none   &trans   
-&trans   &trans   &m_sr    &trans   &m_st    &trans   &none    &bspc   &ret   &space &star   &trans   
-&trans   &m_sa    &trans   &trans   &trans   &trans   &none    &lss    &grt   &qt    &esc    &trans   
+&trans   &trans   &trans   &trans   &trans   &trans   &none    &bspc   &ret   &space &star   &trans   
+&trans   &trans   &trans   &trans   &trans   &trans   &none    &lss    &grt   &qt    &esc    &trans   
 &none &none &none &none &none &none
                         >;
                 };
