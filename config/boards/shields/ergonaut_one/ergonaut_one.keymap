@@ -93,8 +93,8 @@ ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
 ZMK_BEHAVIOR(st_ht, hold_tap,
   label = ZMK_HELPER_STRINGIFY(ST_HT);,
   flavor = "balanced";,
-  tapping-term-ms = <TAP_TERM_MS>;,
-  hold-trigger-key-positions = <KEYS_R>;,
+  tapping-term-ms = <300>;,
+  hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35>;,
   bindings = <&kp>, <&m_st>;
 )
 
