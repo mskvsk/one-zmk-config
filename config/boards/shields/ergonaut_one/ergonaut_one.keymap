@@ -90,12 +90,21 @@
 ZMK_BEHAVIOR(m_st, macro, bindings = <&macro_tap &kp S &kp T>;)
 ZMK_BEHAVIOR(m_sr, macro, bindings = <&macro_tap &kp S &kp R>;)
 ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
-ZMK_BEHAVIOR(st_ht, hold_tap,
-  flavor = "balanced";,
-  tapping-term-ms = <TAP_TERM_MS>;,
-  hold-trigger-key-positions = <KEYS_R>;,
-  bindings = <&kp>, <&m_st>;
-)
+/ { \
+        behaviors { \
+            st_ht: st_ht { \
+                compatible = "zmk,behavior-hold-tap"; \
+				#binding-cells = <2>; \
+                label = ZMK_HELPER_STRINGIFY(ST_HT); \
+                flavor = "balanced"; \
+	            tapping-term-ms = <TAP_TERM_MS>; \
+                quick-tap-ms = <QUICK_TAP_MS>; \
+                hold-trigger-key-positions = <KEYS_R>; \
+                bindings = <&kp>, <&m_st>; \
+            }; \
+    };
+
+
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
     / { \
