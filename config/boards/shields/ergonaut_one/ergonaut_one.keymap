@@ -91,7 +91,7 @@ ZMK_BEHAVIOR(m_st, macro, bindings = <&macro_tap &kp S &kp T>;)
 ZMK_BEHAVIOR(m_sr, macro, bindings = <&macro_tap &kp S &kp R>;)
 ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
 / { 
-        behaviors { 
+behaviors { 
             st_ht: st_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
@@ -103,7 +103,7 @@ ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
                 bindings = <&kp>, <&m_st>; 
             }; 
     };
-
+    };
 
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
