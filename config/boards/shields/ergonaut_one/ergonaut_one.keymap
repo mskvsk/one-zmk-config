@@ -66,12 +66,12 @@
         compatible = "zmk,combos";
         combo_left_rals {
             timeout-ms = <50>;
-            key-positions = <17 29>;
+            key-positions = <16 28>;
             bindings = <&kp RA(LSHFT)>;
         };
         combo_right_rals {
             timeout-ms = <50>;
-            key-positions = <18 30>;
+            key-positions = <19 31>;
             bindings = <&kp RA(LSHFT)>;
         };
     };
@@ -90,6 +90,13 @@
 ZMK_BEHAVIOR(m_st, macro, bindings = <&macro_tap &kp S &kp T>;)
 ZMK_BEHAVIOR(m_sr, macro, bindings = <&macro_tap &kp S &kp R>;)
 ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
+ZMK_BEHAVIOR(st_ht, hold_tap,
+  label = ZMK_HELPER_STRINGIFY(ST_HT);,
+  flavor = "balanced";,
+  tapping-term-ms = <TAP_TERM_MS>;,
+  hold-trigger-key-positions = <KEYS_R>;,
+  bindings = <&kp>, <&m_st>;
+)
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
     / { \
@@ -583,9 +590,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		symbol_layer {
 			label = "symbol";
                        bindings = <
-&trans   &trans   &trans   &trans   &trans   &trans   &none    &lpar   &rpar  &fslh  &none   &trans   
-&trans   &trans   &m_sr    &trans   &m_st    &trans   &none    &bspc   &ret   &space &star   &trans   
-&trans   &m_sa    &trans   &trans   &trans   &trans   &none    &lss    &grt   &qt    &esc    &trans   
+&trans   &trans   &trans   &trans   &trans          &trans   &none    &lpar   &rpar  &fslh  &none   &trans   
+&trans   &trans   &m_sr    &trans   &st_ht RALT T   &trans   &none    &bspc   &ret   &space &star   &trans   
+&trans   &m_sa    &trans   &trans   &trans          &trans   &none    &lss    &grt   &qt    &esc    &trans   
 &none &none &none &none &none &none
                         >;
                 };
