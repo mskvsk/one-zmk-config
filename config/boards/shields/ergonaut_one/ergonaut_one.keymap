@@ -305,7 +305,7 @@ behaviors {
         }; \
     };
 
-#define MM_SHIFT_LALT_RALT_RHT_NOQT(name, none, s, la, ra) \
+#define MM_SHIFT_RALT_RHT_NOQT(name, none, s, la, ra) \
     / { \
         behaviors { \
             name ## _S: name ## _S{ \
@@ -314,16 +314,10 @@ behaviors {
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
-            name ## _LA: name ## _LA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
                 #binding-cells = <0>; \
-                bindings = <&name ## _LA>, <ra>; \
+                bindings = <&name ## _S>, <ra>; \
                 mods = <(MOD_RALT)>; \
             }; \
             name: name { \
