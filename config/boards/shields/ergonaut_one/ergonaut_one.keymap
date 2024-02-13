@@ -55,7 +55,6 @@
     / { \
         behaviors { \
             name: name { \
-                label = ZMK_HELPER_STRINGIFY(ZB_ ## name); \
                 ZMK_BEHAVIOR_CORE_ ## type; \
                 __VA_ARGS__ \
             }; \
@@ -99,7 +98,6 @@ behaviors {
             st_ht: st_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
-                label = ZMK_HELPER_STRINGIFY(ST_HT); 
                 flavor = "balanced"; 
 	            tapping-term-ms = <TAP_TERM_MS>; 
                 quick-tap-ms = <QUICK_TAP_MS>; 
@@ -109,7 +107,6 @@ behaviors {
             sr_ht: sr_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
-                label = ZMK_HELPER_STRINGIFY(SR_HT); 
                 flavor = "balanced"; 
 	            tapping-term-ms = <TAP_TERM_MS>; 
                 quick-tap-ms = <QUICK_TAP_MS>; 
@@ -119,7 +116,6 @@ behaviors {
             en_ht: en_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
-                label = ZMK_HELPER_STRINGIFY(EN_HT); 
                 flavor = "balanced"; 
 	            tapping-term-ms = <TAP_TERM_MS>; 
                 quick-tap-ms = <QUICK_TAP_MS>; 
@@ -129,7 +125,6 @@ behaviors {
             eo_ht: eo_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
-                label = ZMK_HELPER_STRINGIFY(EO_HT); 
                 flavor = "balanced"; 
 	            tapping-term-ms = <TAP_TERM_MS>; 
                 quick-tap-ms = <QUICK_TAP_MS>; 
@@ -144,21 +139,18 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARALHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _LA: name ## _LA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARALHT_ ## name ## _LA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <la>; \
                 mods = <(MOD_LALT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARALHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _LA>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -166,7 +158,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARALHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
@@ -181,14 +172,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -196,7 +185,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
@@ -211,14 +199,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -226,7 +212,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRARHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
@@ -241,14 +226,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(LT_SRALHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(LT_SRALHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -256,7 +239,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(LT_SRALHT_ ## name); \
                 flavor = "tap-preferred"; \
 	            tapping-term-ms = <200>; \
                 bindings = <&mo>, <&name ## _RA>; \
@@ -269,14 +251,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -284,7 +264,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 hold-trigger-key-positions = <KEYS_R>; \
@@ -298,21 +277,18 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _LA: name ## _LA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name ## _LA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <la>; \
                 mods = <(MOD_LALT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _LA>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -320,7 +296,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
@@ -335,21 +310,18 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _LA: name ## _LA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name ## _LA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <la>; \
                 mods = <(MOD_LALT)>; \
             }; \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _LA>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -357,7 +329,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARAHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
@@ -370,14 +341,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLAHT_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _LA: name ## _LA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLAHT_ ## name ## _LA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <la>; \
                 mods = <(MOD_LALT)>; \
@@ -385,7 +354,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLAHT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
@@ -401,21 +369,18 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARA_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name ## _LA: name ## _LA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARA_ ## name ## _LA); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <la>; \
                 mods = <(MOD_LALT)>; \
             }; \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLARA_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _LA>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -428,14 +393,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLA_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SLA_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <la>; \
                 mods = <(MOD_LALT)>; \
@@ -448,14 +411,12 @@ behaviors {
         behaviors { \
             name ## _S: name ## _S{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRA_ ## name ## _S); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
             }; \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_SRA_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _S>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -468,7 +429,6 @@ behaviors {
         behaviors { \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_S_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <none>, <s>; \
                 mods = <(MOD_LSFT)>; \
@@ -482,7 +442,6 @@ behaviors {
         behaviors { \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_RAT_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <none>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -490,7 +449,6 @@ behaviors {
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                label = ZMK_HELPER_STRINGIFY(MM_RAT_ ## name); \
                 flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
@@ -506,7 +464,6 @@ behaviors {
         behaviors { \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_LA_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <none>, <la>; \
                 mods = <(MOD_LALT)>; \
@@ -519,7 +476,6 @@ behaviors {
         behaviors { \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_RA_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <none>, <ra>; \
                 mods = <(MOD_RALT)>; \
@@ -532,14 +488,12 @@ behaviors {
         behaviors { \
             name ## _RA: name ## _RA{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_LARA_ ## name ## _RA); \
                 #binding-cells = <0>; \
                 bindings = <none>, <ra>; \
                 mods = <(MOD_RALT)>; \
             }; \
             name: name{ \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(MM_LARA_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <&name ## _RA>, <la>; \
                 mods = <(MOD_LALT)>; \
