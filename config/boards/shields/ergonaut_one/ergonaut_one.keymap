@@ -547,12 +547,12 @@ MM_SHIFT_RALT(u, &kp U, &kp LS(U), &kp U)
 LT_SHIFT_RALT_HT(e, &kp E, &kp LS(E), &kp E)
 MM_RALT(ret, &kp RET, &kp RET)
 
-MM_SHIFT_RALT(y, &kp Y, &kp LS(Y), &kp N3, &kp Y)
-MM_SHIFT_RALT_RHT(o, &kp O, &kp LS(O), &kp N6, &kp O)
+MM_SHIFT_RALT(y, &kp Y, &kp LS(Y), &kp Y)
+MM_SHIFT_RALT_RHT(o, &kp O, &kp LS(O), &kp O)
 MM_RALT_RHT(space, &kp SPACE, &kp SPACE)
 
-MM_SHIFT_RALT(z, &kp Z, &kp LS(Z), &kp N4, &kp UNDER)
-MM_SHIFT_RALT(i, &kp I, &kp LS(I), &kp N8, &kp N0)
+MM_SHIFT_RALT(z, &kp Z, &kp LS(Z), &kp Z)
+MM_SHIFT_RALT(i, &kp I, &kp LS(I), &kp I)
 
 /* symbol */
 
