@@ -689,7 +689,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 			label = "symbol2";
                         bindings = <
 &trans   &trans   &semi  &dllr  &at     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
-&trans   &grave   &tab  &esc  &bsp     &trans     &trans   &en RALT N  &trans    &eo LMETA O  &trans   &trans   
+&trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en RALT N  &trans    &eo LMETA O  &trans   &trans   
 &trans   &del      &pipe  &amps  &hash     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
 &none &none &none &none &none &none
                         > ;
