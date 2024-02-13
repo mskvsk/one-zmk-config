@@ -221,7 +221,7 @@ behaviors {
         }; \
     };
 
-#define LT_SHIFT_RALT_LHT(name, none, s, ra) \
+#define LT_SHIFT_RALT_HT(name, none, s, ra) \
     / { \
         behaviors { \
             name ## _S: name ## _S{ \
@@ -531,27 +531,28 @@ MM_SHIFT_RALT(w, &kp W, &kp LS(W), &kp W)
 MM_SHIFT_RALT_LHT(r, &kp R, &kp LS(R), &kp R)
 MM_SHIFT_RALT_LHT(x, &kp X, &kp LS(X), &kp X)
 
-LT_SHIFT_RALT_LHT(f, &kp F, &kp LS(F), &kp F)
-LT_SHIFT_RALT_LHT(s, &kp S, &kp LS(S), &kp S)
-LT_SHIFT_RALT_LHT(c, &kp C, &kp LS(C), &kp C)
+LT_SHIFT_RALT_HT(f, &kp F, &kp LS(F), &kp F)
+LT_SHIFT_RALT_HT(s, &kp S, &kp LS(S), &kp S)
+LT_SHIFT_RALT_HT(c, &kp C, &kp LS(C), &kp C)
 
 MM_SHIFT_RALT_LHT(p, &kp P, &kp LS(P), &kp G)
 MM_SHIFT_RALT_LHT_NOQT(t, &kp T, &kp LS(T), &kp D)
 MM_SHIFT_RALT_LHT(v, &kp V, &kp LS(V), &kp B)
 
-MM_SHIFT_LALT_RALT(l, &kp L, &kp LS(L), &kp N1, &kp J)
-MM_SHIFT_LALT_RALT_RHT_NOQT(n, &kp N, &kp LS(N), &kp N4, &kp H)
-MM_SHIFT_LALT_RALT_RHT(m, &kp M, &kp LS(M), &kp N7, &kp K)
+MM_SHIFT_RALT(l, &kp L, &kp LS(L), &kp J)
+MM_SHIFT_RALT_RHT_NOQT(n, &kp N, &kp LS(N), &kp H)
+MM_SHIFT_RALT_RHT(m, &kp M, &kp LS(M), &kp K)
 
-MM_SHIFT_LALT_RALT(u, &kp U, &kp LS(U), &kp N2, &kp U)
-MM_SHIFT_LALT_RALT(e, &kp E, &kp LS(E), &kp N5, &kp E)
-MM_SHIFT_LALT_RALT(comma, &kp COMMA, &kp QMARK, &kp N8, &kp COMMA)
+MM_SHIFT_RALT(u, &kp U, &kp LS(U), &kp U)
+LT_SHIFT_RALT_HT(e, &kp E, &kp LS(E), &kp E)
+MM_RALT(ret, &kp RET, &kp RET)
 
-MM_SHIFT_LALT_RALT(y, &kp Y, &kp LS(Y), &kp N3, &kp Y)
-MM_SHIFT_LALT_RALT_RHT(o, &kp O, &kp LS(O), &kp N6, &kp O)
+MM_SHIFT_RALT(y, &kp Y, &kp LS(Y), &kp N3, &kp Y)
+MM_SHIFT_RALT_RHT(o, &kp O, &kp LS(O), &kp N6, &kp O)
+MM_RALT_RHT(space, &kp SPACE, &kp SPACE)
 
-MM_SHIFT_LALT_RALT(z, &kp Z, &kp LS(Z), &kp N4, &kp UNDER)
-MM_SHIFT_LALT_RALT(i, &kp I, &kp LS(I), &kp N8, &kp N0)
+MM_SHIFT_RALT(z, &kp Z, &kp LS(Z), &kp N4, &kp UNDER)
+MM_SHIFT_RALT(i, &kp I, &kp LS(I), &kp N8, &kp N0)
 
 /* symbol */
 
@@ -623,7 +624,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                         bindings = <
 &none  &none         &w            &f NAV F  &p LSHFT P &none  &none  &l LSHFT L  &u        &y                 &none       &none
 &none  &q            &r LMETA R    &s SYM S  &t RALT T  &none  &none  &n RALT N   &e SYM2 E &o LMETA O         &z          &none
-&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &kp RET    &kp SPACE &i          &none
+&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &ret    &space LCTRL SPACE &i          &none
 &none &none &none &none &none &none
                         >;
                 };
