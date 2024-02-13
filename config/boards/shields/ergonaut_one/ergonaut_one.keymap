@@ -106,7 +106,7 @@ behaviors {
                 hold-trigger-key-positions = <KEYS_R>; 
                 bindings = <&kp>, <&m_st>; 
             }; 
-            m_sr: m_sr { \
+            sr_ht: sr_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
                 label = ZMK_HELPER_STRINGIFY(SR_HT); 
@@ -126,7 +126,7 @@ behaviors {
                 hold-trigger-key-positions = <KEYS_L>; 
                 bindings = <&kp>, <&m_en>; 
             }; 
-            m_eo: m_eo { \
+            eo_ht: eo_ht { \
                 compatible = "zmk,behavior-hold-tap"; 
 				#binding-cells = <2>; 
                 label = ZMK_HELPER_STRINGIFY(EO_HT); 
