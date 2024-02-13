@@ -142,6 +142,8 @@ M_HT(st)
 M_HT(sr)
 M_HT(en)
 M_HT(eo)
+M_HT(fp)
+M_HT(ft)
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
     / { \
