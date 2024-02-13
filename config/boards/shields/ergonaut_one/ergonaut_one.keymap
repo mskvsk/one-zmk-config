@@ -533,7 +533,7 @@ MM_SHIFT_RALT_LHT(p, &kp P, &kp LS(P), &kp G)
 MM_SHIFT_RALT_LHT_NOQT(t, &kp T, &kp LS(T), &kp D)
 MM_SHIFT_RALT_LHT(v, &kp V, &kp LS(V), &kp B)
 
-MM_SHIFT_RALT(l, &kp L, &kp LS(L), &kp J)
+MM_SHIFT_RALT_RHT(l, &kp L, &kp LS(L), &kp J)
 MM_SHIFT_RALT_RHT_NOQT(n, &kp N, &kp LS(N), &kp H)
 MM_SHIFT_RALT_RHT(m, &kp M, &kp LS(M), &kp K)
 
@@ -638,7 +638,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                         bindings = <
 &trans   &trans   &semi  &dllr  &at     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
 &trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en_ht RALT N  &trans    &eo_ht LMETA O  &trans   &trans   
-&trans   &del      &pipe  &amps  &hash     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
+&trans   &del      &pipe  &amps  &hash     &trans     &trans   &trans      &trans    &trans       &m_ei   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
