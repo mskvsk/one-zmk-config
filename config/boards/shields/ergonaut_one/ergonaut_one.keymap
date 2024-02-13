@@ -636,15 +636,15 @@ MM_RALT(hash, &kp HASH, &kp N9)
 
 /* navigation */
 
-MM_LALT(left, &kp LEFT, &kp HOME)
+MM_RALT(left, &kp LEFT, &kp HOME)
 
-MM_LALT(up, &kp UP, &kp PG_UP)
-MM_LALT(down, &kp DOWN, &kp PG_DN)
+MM_RALT(up, &kp UP, &kp PG_UP)
+MM_RALT(down, &kp DOWN, &kp PG_DN)
 
-MM_LALT(right, &kp RIGHT, &kp END)
+MM_RALT(right, &kp RIGHT, &kp END)
 
-MM_LALT(volup, &kp C_VOL_UP, &kp C_BRI_UP)
-MM_LALT(voldn, &kp C_VOL_DN, &kp C_BRI_DN)
+MM_RALT(volup, &kp C_VOL_UP, &kp C_BRI_UP)
+MM_RALT(voldn, &kp C_VOL_DN, &kp C_BRI_DN)
 
 /* mouse */
 
@@ -689,7 +689,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 			label = "symbol2";
                         bindings = <
 &trans   &trans   &semi  &dllr  &at     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
-&trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en RALT N  &trans    &eo LMETA O  &trans   &trans   
+&trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en_ht RALT N  &trans    &eo_ht LMETA O  &trans   &trans   
 &trans   &del      &pipe  &amps  &hash     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
 &none &none &none &none &none &none
                         > ;
