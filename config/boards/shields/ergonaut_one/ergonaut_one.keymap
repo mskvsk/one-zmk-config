@@ -12,8 +12,9 @@
 
 #define DEF  0
 #define SYM  1
-#define NAV  2
-#define MOU  3
+#define SYM2 2
+#define NAV  3
+#define MOU  4
 
 #undef U_MOUSE_MOVE_MAX
 #undef U_MOUSE_SCROLL_MAX
@@ -65,13 +66,13 @@
     combos {
         compatible = "zmk,combos";
         combo_left_rals {
-            timeout-ms = <50>;
-            key-positions = <16 28>;
+            timeout-ms = <150>;
+            key-positions = <4 16>;
             bindings = <&kp RA(LSHFT)>;
         };
         combo_right_rals {
-            timeout-ms = <50>;
-            key-positions = <19 31>;
+            timeout-ms = <150>;
+            key-positions = <7 19>;
             bindings = <&kp RA(LSHFT)>;
         };
     };
@@ -90,6 +91,9 @@
 ZMK_BEHAVIOR(m_st, macro, bindings = <&macro_tap &kp S &kp T>;)
 ZMK_BEHAVIOR(m_sr, macro, bindings = <&macro_tap &kp S &kp R>;)
 ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
+ZMK_BEHAVIOR(m_en, macro, bindings = <&macro_tap &kp E &kp N>;)
+ZMK_BEHAVIOR(m_eo, macro, bindings = <&macro_tap &kp E &kp O>;)
+ZMK_BEHAVIOR(m_ei, macro, bindings = <&macro_tap &kp E &kp I>;)
 / { 
 behaviors { 
             st_ht: st_ht { \
@@ -102,9 +106,38 @@ behaviors {
                 hold-trigger-key-positions = <KEYS_R>; 
                 bindings = <&kp>, <&m_st>; 
             }; 
+            m_sr: m_sr { \
+                compatible = "zmk,behavior-hold-tap"; 
+				#binding-cells = <2>; 
+                label = ZMK_HELPER_STRINGIFY(SR_HT); 
+                flavor = "balanced"; 
+	            tapping-term-ms = <TAP_TERM_MS>; 
+                quick-tap-ms = <QUICK_TAP_MS>; 
+                hold-trigger-key-positions = <KEYS_R>; 
+                bindings = <&kp>, <&m_sr>; 
+            }; 
+            en_ht: en_ht { \
+                compatible = "zmk,behavior-hold-tap"; 
+				#binding-cells = <2>; 
+                label = ZMK_HELPER_STRINGIFY(EN_HT); 
+                flavor = "balanced"; 
+	            tapping-term-ms = <TAP_TERM_MS>; 
+                quick-tap-ms = <QUICK_TAP_MS>; 
+                hold-trigger-key-positions = <KEYS_L>; 
+                bindings = <&kp>, <&m_en>; 
+            }; 
+            m_eo: m_eo { \
+                compatible = "zmk,behavior-hold-tap"; 
+				#binding-cells = <2>; 
+                label = ZMK_HELPER_STRINGIFY(EO_HT); 
+                flavor = "balanced"; 
+	            tapping-term-ms = <TAP_TERM_MS>; 
+                quick-tap-ms = <QUICK_TAP_MS>; 
+                hold-trigger-key-positions = <KEYS_L>; 
+                bindings = <&kp>, <&m_eo>; 
+            }; 
     };
     };
-
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
     / { \
@@ -523,36 +556,53 @@ MM_SHIFT_RALT_LHT_NOQT(t, &kp T, &kp LS(T), &kp D)
 MM_SHIFT_RALT_LHT(v, &kp V, &kp LS(V), &kp B)
 
 MM_SHIFT_LALT_RALT(l, &kp L, &kp LS(L), &kp N1, &kp J)
-MM_SHIFT_LALT_RALT_RHT_NOQT(n, &kp N, &kp LS(N), &kp N5, &kp H)
-MM_SHIFT_LALT_RALT_RHT(m, &kp M, &kp LS(M), &kp N9, &kp K)
+MM_SHIFT_LALT_RALT_RHT_NOQT(n, &kp N, &kp LS(N), &kp N4, &kp H)
+MM_SHIFT_LALT_RALT_RHT(m, &kp M, &kp LS(M), &kp N7, &kp K)
 
 MM_SHIFT_LALT_RALT(u, &kp U, &kp LS(U), &kp N2, &kp U)
-MM_SHIFT_LALT_RALT(e, &kp E, &kp LS(E), &kp N6, &kp E)
-MM_SHIFT_LALT_RALT(comma, &kp COMMA, &kp QMARK, &kp N0, &kp COMMA)
+MM_SHIFT_LALT_RALT(e, &kp E, &kp LS(E), &kp N5, &kp E)
+MM_SHIFT_LALT_RALT(comma, &kp COMMA, &kp QMARK, &kp N8, &kp COMMA)
 
 MM_SHIFT_LALT_RALT(y, &kp Y, &kp LS(Y), &kp N3, &kp Y)
-MM_SHIFT_LALT_RALT_RHT(o, &kp O, &kp LS(O), &kp N7, &kp O)
-MM_SHIFT_LALT_RALT_RHT(dot, &kp DOT, &kp EXCL, &kp UNDER, &kp DOT)
+MM_SHIFT_LALT_RALT_RHT(o, &kp O, &kp LS(O), &kp N6, &kp O)
+MM_SHIFT_RALT_RHT(space, &kp SPACE, &kp SPACE, &kp SPACE)
 
-MM_SHIFT_LALT_RALT(z, &kp Z, &kp LS(Z), &kp N4, &kp Z)
-MM_SHIFT_LALT_RALT(i, &kp I, &kp LS(I), &kp N8, &kp I)
+MM_SHIFT_LALT_RALT(z, &kp Z, &kp LS(Z), &kp N4, &kp UNDER)
+MM_SHIFT_LALT_RALT(i, &kp I, &kp LS(I), &kp N8, &kp N0)
 
 /* symbol */
 
-MM_RALT_LALT(lpar, &kp LPAR, &kp LBRC, &kp AT)
-MM_SHIFT_LALT_RALT(bspc, &kp BSPC, &kp DEL, &kp SEMI, &kp COLON)
-MM_RALT_LALT(lss, &kp LT, &kp LBKT, &kp HASH)
+MM_RALT(lpar, &kp LPAR, &kp LBRC)
+MM_RALT(dot, &kp DOT, &kp COLON)
+MM_RALT(lss, &kp LT, &kp LBKT)
 
-MM_RALT_LALT(rpar, &kp RPAR, &kp RBRC, &kp DLLR)
-MM_LALT(ret, &kp RET, &kp AMPS)
-MM_RALT_LALT(grt, &kp GT, &kp RBKT, &kp TILDE)
+MM_RALT(rpar, &kp RPAR, &kp RBRC)
+MM_RALT(comma, &kp COMMA, &kp EQUAL)
+MM_RALT(grt, &kp GT, &kp RBKT)
 
-MM_RALT_LALT(fslh, &kp FSLH, &kp PLUS, &kp BSLH)
-MM_SHIFT_LALT_RALT(space, &kp SPACE, &kp TAB, &kp PIPE, &kp MINUS)
-MM_RALT_LALT(qt, &kp DQT, &kp APOS, &kp GRAVE)
+MM_RALT(qmark, &kp QMARK, &kp EXCL)
+MM_RALT(fslh, &kp FSLH, &kp STAR)
+MM_RALT(sqt, &kp SQT, &kp DQT)
 
-MM_RALT_LALT(star, &kp STAR, &kp PRCNT, &kp CARET)
-MM_RALT(esc, &kp ESC, &kp EQUAL)
+MM_RALT(under, &kp UNDER, &kp PRCNT)
+MM_RALT(minus, &kp MINUS, &kp PLUS)
+
+/* symbol 2*/
+
+MM_RALT(grave, &kp GRAVE, &kp N0)
+MM_RALT(del, &kp DEL, &kp DEL)
+
+MM_SHIFT_RALT(semi, &kp SEMI, &kp N1, &kp BSLH)
+MM_RALT(tab, &kp TAB, &kp N4)
+MM_RALT(pipe, &kp PIPE, &kp N7)
+
+MM_SHIFT_RALT(dllr, &kp DLLR, &kp N2, &kp TILDE)
+MM_RALT(esc, &kp ESC, &kp N5)
+MM_RALT(amps, &kp AMPS, &kp N8)
+
+MM_SHIFT_RALT(at, &kp AT, &kp N3, &kp CARET)
+MM_RALT(bspc, &kp BSPC, &kp N6)
+MM_RALT(hash, &kp HASH, &kp N9)
 
 /* navigation */
 
@@ -588,9 +638,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 default_layer {
 			label = "main";
                         bindings = <
-&none  &none         &w            &f NAV F  &p LALT P   &none  &none  &l          &u      &y             &none       &none
-&none  &q            &r LMETA R    &s SYM S  &t RALT T   &none  &none  &n RALT N  &e       &o LMETA O     &z          &none
-&none  &a            &x LCTRL X    &c MOU C  &v LSHFT V  &none  &none  &m LSHFT M  &comma  &dot LCTRL DOT &i          &none
+&none  &none         &w            &f NAV F  &p LSHFT P &none  &none  &l LSHFT L  &u        &y                 &none       &none
+&none  &q            &r LMETA R    &s SYM S  &t RALT T  &none  &none  &n RALT N   &e SYM2 E &o LMETA O         &z          &none
+&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &kp RET    &space LCTRL SPACE &i          &none
 &none &none &none &none &none &none
                         >;
                 };
@@ -598,11 +648,21 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		symbol_layer {
 			label = "symbol";
                        bindings = <
-&trans   &trans   &trans   &trans   &trans          &trans   &none    &lpar   &rpar  &fslh  &none   &trans   
-&trans   &trans   &m_sr    &trans   &st_ht RALT T   &trans   &none    &bspc   &ret   &space &star   &trans   
-&trans   &m_sa    &trans   &trans   &trans          &trans   &none    &lss    &grt   &qt    &esc    &trans   
+&trans   &trans   &trans            &trans   &trans          &trans   &none    &lpar   &rpar  &qmark  &none   &trans   
+&trans   &trans   &sr_ht LMETA R    &trans   &st_ht RALT T   &trans   &none    &dot   &comma   &fslh &under   &trans   
+&trans   &m_sa    &trans            &trans   &trans          &trans   &none    &lss    &grt   &sqt    &minus    &trans   
 &none &none &none &none &none &none
                         >;
+                };
+
+        symbol2_layer {
+			label = "symbol2";
+                        bindings = <
+&trans   &trans   &semi  &dllr  &at     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
+&trans   &grave   &tab  &esc  &bsp     &trans     &trans   &en RALT N  &trans    &eo LMETA O  &trans   &trans   
+&trans   &del      &pipe  &amps  &hash     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
+&none &none &none &none &none &none
+                        > ;
                 };
 
 		navigation_layer {
