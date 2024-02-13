@@ -206,6 +206,36 @@ behaviors {
         }; \
     };
 
+#define MM_SHIFT_RALT_RHT(name, none, s, ra) \
+    / { \
+        behaviors { \
+            name ## _S: name ## _S{ \
+                compatible = "zmk,behavior-mod-morph"; \
+                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _S); \
+                #binding-cells = <0>; \
+                bindings = <none>, <s>; \
+                mods = <(MOD_LSFT)>; \
+            }; \
+            name ## _RA: name ## _RA{ \
+                compatible = "zmk,behavior-mod-morph"; \
+                label = ZMK_HELPER_STRINGIFY(MM_SRALHT_ ## name ## _RA); \
+                #binding-cells = <0>; \
+                bindings = <&name ## _S>, <ra>; \
+                mods = <(MOD_RALT)>; \
+            }; \
+            name: name { \
+                compatible = "zmk,behavior-hold-tap"; \
+				#binding-cells = <2>; \
+                label = ZMK_HELPER_STRINGIFY(MM_SRARHT_ ## name); \
+                flavor = "balanced"; \
+	            tapping-term-ms = <TAP_TERM_MS>; \
+                quick-tap-ms = <QUICK_TAP_MS>; \
+                hold-trigger-key-positions = <KEYS_L>; \
+                bindings = <&kp>, <&name ## _RA>; \
+            }; \
+        }; \
+    };
+
 #define LT_SHIFT_RALT_LHT(name, none, s, ra) \
     / { \
         behaviors { \
