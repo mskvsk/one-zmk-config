@@ -111,6 +111,18 @@ ZMK_BEHAVIOR(m_ft, macro, bindings = <&macro_tap &kp F &kp T>;)
 ZMK_BEHAVIOR(m_fv, macro, bindings = <&macro_tap &kp F &kp V>;)
 
 
+ZMK_BEHAVIOR(m_cq, macro, bindings = <&macro_tap &kp C &kp Q>;)
+ZMK_BEHAVIOR(m_ca, macro, bindings = <&macro_tap &kp C &kp A>;)
+
+ZMK_BEHAVIOR(m_cw, macro, bindings = <&macro_tap &kp C &kp W>;)
+ZMK_BEHAVIOR(m_cr, macro, bindings = <&macro_tap &kp C &kp R>;)
+ZMK_BEHAVIOR(m_cx, macro, bindings = <&macro_tap &kp C &kp X>;)
+
+ZMK_BEHAVIOR(m_cp, macro, bindings = <&macro_tap &kp C &kp P>;)
+ZMK_BEHAVIOR(m_ct, macro, bindings = <&macro_tap &kp C &kp T>;)
+ZMK_BEHAVIOR(m_cv, macro, bindings = <&macro_tap &kp C &kp V>;)
+
+
 ZMK_BEHAVIOR(m_el, macro, bindings = <&macro_tap &kp E &kp L>;)
 ZMK_BEHAVIOR(m_en, macro, bindings = <&macro_tap &kp E &kp N>;)
 ZMK_BEHAVIOR(m_em, macro, bindings = <&macro_tap &kp E &kp M>;)
@@ -123,12 +135,38 @@ ZMK_BEHAVIOR(m_ez, macro, bindings = <&macro_tap &kp E &kp Z>;)
 ZMK_BEHAVIOR(m_ei, macro, bindings = <&macro_tap &kp E &kp I>;)
 
 
-M_HT(st)
+ZMK_BEHAVIOR(m_ul, macro, bindings = <&macro_tap &kp U &kp L>;)
+ZMK_BEHAVIOR(m_un, macro, bindings = <&macro_tap &kp U &kp N>;)
+ZMK_BEHAVIOR(m_um, macro, bindings = <&macro_tap &kp U &kp M>;)
+
+ZMK_BEHAVIOR(m_uy, macro, bindings = <&macro_tap &kp U &kp Y>;)
+ZMK_BEHAVIOR(m_uo, macro, bindings = <&macro_tap &kp U &kp O>;)
+ZMK_BEHAVIOR(m_uspace, macro, bindings = <&macro_tap &kp U &kp SPACE>;)
+
+ZMK_BEHAVIOR(m_uz, macro, bindings = <&macro_tap &kp U &kp Z>;)
+ZMK_BEHAVIOR(m_ui, macro, bindings = <&macro_tap &kp U &kp I>;)
+
+
 M_HT(sr)
+M_HT(sp)
+M_HT(st)
+
+M_HT(el)
 M_HT(en)
 M_HT(eo)
+
+M_HT(ul)
+M_HT(un)
+M_HT(uo)
+
+M_HT(fr)
 M_HT(fp)
 M_HT(ft)
+
+M_HT(cr)
+M_HT(cx)
+M_HT(cp)
+M_HT(ct)
 
 #define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
     / { \
@@ -623,7 +661,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		symbol_layer {
 			label = "symbol";
                        bindings = <
-&trans   &trans   &m_sw            &trans   &m_sp          &trans   &none    &lpar   &rpar  &qmark  &none   &trans   
+&trans   &trans   &m_sw            &trans   &sp_ht LSHFT P         &trans   &none    &lpar   &rpar  &qmark  &none   &trans   
 &trans   &m_sq   &sr_ht LMETA R    &trans   &st_ht RALT T   &trans   &none    &dot   &comma   &fslh &under   &trans   
 &trans   &m_sa    &m_sx            &trans   &m_sv          &trans   &none    &lss    &grt   &sqt    &minus    &trans   
 &none &none &none &none &none &none
@@ -633,7 +671,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
         symbol2_layer {
 			label = "symbol2";
                         bindings = <
-&trans   &trans   &semi  &dllr  &at     &trans     &trans   &m_el      &trans    &m_ey       &trans   &trans   
+&trans   &trans   &semi  &dllr  &at     &trans     &trans   &el_ht LSHFT L     &trans    &m_ey       &trans   &trans   
 &trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en_ht RALT N  &trans    &eo_ht LMETA O  &m_ez   &trans   
 &trans   &del      &pipe  &amps  &hash     &trans     &trans   &m_em      &trans    &m_espace &m_ei   &trans   
 &none &none &none &none &none &none
@@ -644,7 +682,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 			label = "navigation";
                         bindings = <
 &trans   &trans &m_fw   &trans   &fp_ht LSHFT P   &trans   &trans   &trans &up     &trans      &trans  &trans   
-&trans   &m_fa  &m_fr   &trans   &ft_ht RALT T   &trans   &trans   &left   &down   &right       &volup  &trans   
+&trans   &m_fa  &fr_ht LMETA R  &trans   &ft_ht RALT T   &trans   &trans   &left   &down   &right       &volup  &trans   
 &trans   &m_fa   &m_fx   &trans   &m_fv   &trans   &trans   &trans  &trans  &trans   &voldn  &trans   
 &none &none &none &none &none &none
                         >;
@@ -653,9 +691,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &trans      &trans  &trans     &trans     &trans   &mtl          &mup    &mtr     &trans   &trans   
-&trans   &trans   &trans      &trans  &trans     &trans     &trans   &mleft        &mdown  &mright  &trans   &trans   
-&trans   &trans   &mt LALT X  &trans  &mbtn      &trans     &trans   &mbl LSHFT M  &mbc    &mbr     &trans   &trans   
+&trans   &trans   &m_cw      &trans  &cp_ht LSHFT P     &trans     &trans   &mtl          &mup    &mtr     &trans   &trans   
+&trans   &m_cq   &cr_ht LMETA R     &trans  &ct_ht RALT T     &trans     &trans   &mleft        &mdown  &mright  &trans   &trans   
+&trans   &m_ca   &cx_ht LALT X  &trans  &mbtn      &trans     &trans   &mbl LSHFT M  &mbc    &mbr     &trans   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
@@ -663,9 +701,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 fun_layer {
 			label = "function";
                         bindings = <
-&trans   &trans   &kp F1      &kp F2  &kp F3     &trans     &trans   &trans          &trans    &trans     &trans   &trans   
-&trans   &kp F11   &kp F4      &kp F5  &kp F6     &trans     &trans   &trans        &trans  &trans  &trans   &trans   
-&trans   &kp F10   &kp F7  &kp F8  &kp F9      &trans     &trans   &trans  &trans    &trans     &trans   &trans   
+&trans   &trans   &kp F1      &kp F2  &kp F3     &trans     &trans   &ul_ht LSHFT L   &trans    &m_uy     &trans   &trans   
+&trans   &kp F11   &kp F4      &kp F5  &kp F6     &trans     &trans   &un_ht RALT N   &trans    &uo_ht LMETA O  &m_uz   &trans   
+&trans   &kp F10   &kp F7  &kp F8  &kp F9      &trans     &trans   &m_um              &trans    &m_uspace     &m_ui   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
