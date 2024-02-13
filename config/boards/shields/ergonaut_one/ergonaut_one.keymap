@@ -549,7 +549,6 @@ MM_SHIFT_LALT_RALT(comma, &kp COMMA, &kp QMARK, &kp N8, &kp COMMA)
 
 MM_SHIFT_LALT_RALT(y, &kp Y, &kp LS(Y), &kp N3, &kp Y)
 MM_SHIFT_LALT_RALT_RHT(o, &kp O, &kp LS(O), &kp N6, &kp O)
-MM_SHIFT_RALT_RHT(space, &kp SPACE, &kp SPACE, &kp SPACE)
 
 MM_SHIFT_LALT_RALT(z, &kp Z, &kp LS(Z), &kp N4, &kp UNDER)
 MM_SHIFT_LALT_RALT(i, &kp I, &kp LS(I), &kp N8, &kp N0)
@@ -620,15 +619,17 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
         keymap {
                 compatible = "zmk,keymap";
                 default_layer {
+			label = "main";
                         bindings = <
 &none  &none         &w            &f NAV F  &p LSHFT P &none  &none  &l LSHFT L  &u        &y                 &none       &none
 &none  &q            &r LMETA R    &s SYM S  &t RALT T  &none  &none  &n RALT N   &e SYM2 E &o LMETA O         &z          &none
-&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &kp RET    &space LCTRL SPACE &i          &none
+&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &kp RET    &kp SPACE &i          &none
 &none &none &none &none &none &none
                         >;
                 };
 
 		symbol_layer {
+			label = "symbol";
                        bindings = <
 &trans   &trans   &trans            &trans   &trans          &trans   &none    &lpar   &rpar  &qmark  &none   &trans   
 &trans   &trans   &sr_ht LMETA R    &trans   &st_ht RALT T   &trans   &none    &dot   &comma   &fslh &under   &trans   
@@ -638,6 +639,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 };
 
         symbol2_layer {
+			label = "symbol2";
                         bindings = <
 &trans   &trans   &semi  &dllr  &at     &trans     &trans   &trans      &trans    &trans       &trans   &trans   
 &trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en_ht RALT N  &trans    &eo_ht LMETA O  &trans   &trans   
@@ -647,6 +649,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 };
 
 		navigation_layer {
+			label = "navigation";
                         bindings = <
 &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans &up     &trans      &trans  &trans   
 &trans   &trans   &trans   &trans   &trans   &trans   &trans   &left   &down   &right       &volup  &trans   
@@ -656,6 +659,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 };
 
                 mouse_layer {
+			label = "mouse";
                         bindings = <
 &trans   &trans   &trans      &trans  &trans     &trans     &trans   &mtl          &mup    &mtr     &trans   &trans   
 &trans   &trans   &trans      &trans  &trans     &trans     &trans   &mleft        &mdown  &mright  &trans   &trans   
