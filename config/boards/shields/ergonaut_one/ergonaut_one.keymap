@@ -62,21 +62,6 @@
         }; \
     };
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-        combo_left_rals {
-            timeout-ms = <150>;
-            key-positions = <4 16>;
-            bindings = <&kp RA(LSHFT)>;
-        };
-        combo_right_rals {
-            timeout-ms = <150>;
-            key-positions = <7 19>;
-            bindings = <&kp RA(LSHFT)>;
-        };
-    };
-};
 
 #define HYPER(x) LC(LA(LS(LG(x))))
 
