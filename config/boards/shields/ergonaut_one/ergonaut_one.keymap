@@ -487,6 +487,26 @@ M_HT(ct)
         }; \
     };
 
+#define MM_LALT_RHT(name, none, la) \
+    / { \
+        behaviors { \
+            name ## _LA: name ## _LA{ \
+                compatible = "zmk,behavior-mod-morph"; \
+                #binding-cells = <0>; \
+                bindings = <none>, <la>; \
+                mods = <(MOD_LALT)>; \
+            }; \
+            name: name { \
+                compatible = "zmk,behavior-hold-tap"; \
+				#binding-cells = <2>; \
+                flavor = "balanced"; \
+	            tapping-term-ms = <TAP_TERM_MS>; \
+                quick-tap-ms = <QUICK_TAP_MS>; \
+                hold-trigger-key-positions = <KEYS_L>; \
+                bindings = <&kp>, <&name ## _LA>; \
+            }; \
+        }; \
+    };
 
 #define MM_LALT(name, none, la) \
     / { \
@@ -631,17 +651,17 @@ MM_RALT(voldn, &kp C_VOL_DN, &kp C_BRI_DN)
 
 /* mouse */
 
-MM_RALT(mtl, &none, &kp HYPER(A))
-MM_RALT_LALT(mleft, &mmv MOVE_LEFT, &kp HYPER(B), &msc SCROLL_LEFT)
-MM_RALT_RHT(mbl, &none, &kp HYPER(C))
+MM_LALT(mtl, &none, &kp HYPER(A))
+MM_RALT_LALT(mleft, &mmv MOVE_LEFT, &msc SCROLL_LEFT, &kp HYPER(B))
+MM_LALT_RHT(mbl, &none, &kp HYPER(C))
 
-MM_RALT_LALT(mup, &mmv MOVE_UP, &kp HYPER(D), &msc SCROLL_UP)
-MM_RALT_LALT(mdown, &mmv MOVE_DOWN, &kp HYPER(E), &msc SCROLL_DOWN)
-MM_RALT(mbc, &none, &kp HYPER(F))
+MM_RALT_LALT(mup, &mmv MOVE_UP, &msc SCROLL_UP, &kp HYPER(D))
+MM_RALT_LALT(mdown, &mmv MOVE_DOWN, &msc SCROLL_DOWN, &kp HYPER(E))
+MM_LALT(mbc, &none, &kp HYPER(F))
 
-MM_RALT(mtr, &none, &kp HYPER(G))
-MM_RALT_LALT(mright, &mmv MOVE_RIGHT, &kp HYPER(H), &msc SCROLL_RIGHT)
-MM_RALT(mbr, &none, &kp HYPER(K))
+MM_LALT(mtr, &none, &kp HYPER(G))
+MM_RALT_LALT(mright, &mmv MOVE_RIGHT, &msc SCROLL_RIGHT, &kp HYPER(H))
+MM_LALT(mbr, &none, &kp HYPER(K))
 
 MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 
@@ -661,9 +681,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		symbol_layer {
 			label = "symbol";
                        bindings = <
-&trans   &trans   &m_sw            &trans   &sp_ht LSHFT P         &trans   &none    &lpar   &rpar  &qmark  &none   &trans   
-&trans   &m_sq   &sr_ht LMETA R    &trans   &st_ht RALT T   &trans   &none    &dot   &comma   &fslh &under   &trans   
-&trans   &m_sa    &m_sx            &trans   &m_sv          &trans   &none    &lss    &grt   &sqt    &minus    &trans   
+&trans   &trans   &m_sw            &trans   &sp_ht LSHFT P &trans   &none    &lpar   &rpar   &qmark  &none    &trans   
+&trans   &m_sq    &sr_ht LMETA R   &trans   &st_ht RALT T  &trans   &none    &dot    &comma  &fslh   &under   &trans   
+&trans   &m_sa    &m_sx            &trans   &m_sv          &trans   &none    &lss    &grt    &sqt    &minus   &trans   
 &none &none &none &none &none &none
                         >;
                 };
@@ -671,9 +691,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
         symbol2_layer {
 			label = "symbol2";
                         bindings = <
-&trans   &trans   &semi  &dllr  &at     &trans     &trans   &el_ht LSHFT L     &trans    &m_ey       &trans   &trans   
-&trans   &grave   &tab  &esc  &bspc     &trans     &trans   &en_ht RALT N  &trans    &eo_ht LMETA O  &m_ez   &trans   
-&trans   &del      &pipe  &amps  &hash     &trans     &trans   &m_em      &trans    &m_espace &m_ei   &trans   
+&trans   &trans   &semi  &dllr  &at     &trans     &trans   &el_ht LSHFT L  &trans    &m_ey           &trans   &trans   
+&trans   &grave   &tab   &esc   &bspc   &trans     &trans   &en_ht RALT N   &trans    &eo_ht LMETA O  &m_ez    &trans   
+&trans   &del     &pipe  &amps  &hash   &trans     &trans   &m_em           &trans    &m_espace       &m_ei    &trans   
 &none &none &none &none &none &none
                         > ;
                 };
@@ -681,9 +701,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		navigation_layer {
 			label = "navigation";
                         bindings = <
-&trans   &trans &m_fw   &trans   &fp_ht LSHFT P   &trans   &trans   &trans &up     &trans      &trans  &trans   
-&trans   &m_fa  &fr_ht LMETA R  &trans   &ft_ht RALT T   &trans   &trans   &left   &down   &right       &volup  &trans   
-&trans   &m_fa   &m_fx   &trans   &m_fv   &trans   &trans   &trans  &trans  &trans   &voldn  &trans   
+&trans   &trans   &m_fw           &trans   &fp_ht LSHFT P  &trans   &trans   &trans  &up     &trans   &trans  &trans   
+&trans   &m_fq    &fr_ht LMETA R  &trans   &ft_ht RALT T   &trans   &trans   &left   &down   &right   &volup  &trans   
+&trans   &m_fa    &m_fx           &trans   &m_fv           &trans   &trans   &trans  &trans  &trans   &voldn  &trans   
 &none &none &none &none &none &none
                         >;
                 };
@@ -691,9 +711,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &m_cw      &trans  &cp_ht LSHFT P     &trans     &trans   &mtl          &mup    &mtr     &trans   &trans   
-&trans   &m_cq   &cr_ht LMETA R     &trans  &ct_ht RALT T     &trans     &trans   &mleft        &mdown  &mright  &trans   &trans   
-&trans   &m_ca   &cx_ht LALT X  &trans  &mbtn      &trans     &trans   &mbl LSHFT M  &mbc    &mbr     &trans   &trans   
+&trans   &trans   &m_cw           &trans  &cp_ht LSHFT P  &trans   &trans   &mtl          &mup    &mtr     &trans   &trans   
+&trans   &m_cq    &cr_ht LMETA R  &trans  &ct_ht RALT T   &trans   &trans   &mleft        &mdown  &mright  &trans   &trans   
+&trans   &m_ca    &cx_ht LALT X   &trans  &mbtn           &trans   &trans   &mbl LSHFT M  &mbc    &mbr     &trans   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
@@ -701,9 +721,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 fun_layer {
 			label = "function";
                         bindings = <
-&trans   &trans   &kp F1      &kp F2  &kp F3     &trans     &trans   &ul_ht LSHFT L   &trans    &m_uy     &trans   &trans   
-&trans   &kp F11   &kp F4      &kp F5  &kp F6     &trans     &trans   &un_ht RALT N   &trans    &uo_ht LMETA O  &m_uz   &trans   
-&trans   &kp F10   &kp F7  &kp F8  &kp F9      &trans     &trans   &m_um              &trans    &m_uspace     &m_ui   &trans   
+&trans   &trans   &kp F1  &kp F2  &kp F3  &trans     &trans   &ul_ht LSHFT L  &trans    &m_uy           &trans  &trans   
+&trans   &kp F11  &kp F4  &kp F5  &kp F6  &trans     &trans   &un_ht RALT N   &trans    &uo_ht LMETA O  &m_uz   &trans   
+&trans   &kp F10  &kp F7  &kp F8  &kp F9  &trans     &trans   &m_um           &trans    &m_uspace       &m_ui   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
