@@ -164,7 +164,6 @@ M_HT(fp)
 M_HT(ft)
 
 M_HT(cr)
-M_HT(cx)
 M_HT(cp)
 M_HT(ct)
 
@@ -639,29 +638,22 @@ MM_RALT(hash, &kp HASH, &kp N9)
 
 /* navigation */
 
-MM_RALT(left, &kp LEFT, &kp HOME)
-
-MM_RALT(up, &kp UP, &kp PG_UP)
-MM_RALT(down, &kp DOWN, &kp PG_DN)
-
-MM_RALT(right, &kp RIGHT, &kp END)
-
-MM_RALT(volup, &kp C_VOL_UP, &kp C_BRI_UP)
-MM_RALT(voldn, &kp C_VOL_DN, &kp C_BRI_DN)
+MM_SHIFT(volup, &kp C_VOL_UP, &kp C_BRI_UP)
+MM_SHIFT(voldn, &kp C_VOL_DN, &kp C_BRI_DN)
 
 /* mouse */
 
-MM_LALT(mtl, &none, &kp HYPER(A))
-MM_RALT_LALT(mleft, &mmv MOVE_LEFT, &msc SCROLL_LEFT, &kp HYPER(B))
-MM_LALT_RHT(mbl, &none, &kp HYPER(C))
+MM_LALT_RHT(mtl, &kp HYPER(A), &none)
+MM_RALT(mleft, &mmv MOVE_LEFT, &msc SCROLL_LEFT)
+MM_LALT(mbl, &kp HYPER(C), &none)
 
-MM_RALT_LALT(mup, &mmv MOVE_UP, &msc SCROLL_UP, &kp HYPER(D))
-MM_RALT_LALT(mdown, &mmv MOVE_DOWN, &msc SCROLL_DOWN, &kp HYPER(E))
-MM_LALT(mbc, &none, &kp HYPER(F))
+MM_RALT(mup, &mmv MOVE_UP, &msc SCROLL_UP)
+MM_RALT(mdown, &mmv MOVE_DOWN, &msc SCROLL_DOWN)
+MM_LALT(mcc, &kp HYPER(E), &none)
 
-MM_LALT(mtr, &none, &kp HYPER(G))
-MM_RALT_LALT(mright, &mmv MOVE_RIGHT, &msc SCROLL_RIGHT, &kp HYPER(H))
-MM_LALT(mbr, &none, &kp HYPER(K))
+MM_LALT(mtr, &kp HYPER(G), &none)
+MM_RALT(mright, &mmv MOVE_RIGHT, &msc SCROLL_RIGHT)
+MM_LALT(mbr, &kp HYPER(K), &none)
 
 MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 
@@ -671,7 +663,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 default_layer {
 			label = "main";
                         bindings = <
-&none  &none         &w            &f NAV F  &p LSHFT P &none  &none  &l LSHFT L  &u FUN U        &y                 &none       &none
+&none  &none         &w            &f NAV F  &p &transLSHFT P &none  &none  &l LSHFT L  &u FUN U        &y                 &none       &none
 &none  &q            &r LMETA R    &s SYM S  &t RALT T  &none  &none  &n RALT N   &e SYM2 E &o LMETA O         &z          &none
 &none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &ret    &space LCTRL SPACE &i          &none
 &none &none &none &none &none &none
@@ -701,9 +693,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		navigation_layer {
 			label = "navigation";
                         bindings = <
-&trans   &trans   &m_fw           &trans   &fp_ht LSHFT P  &trans   &trans   &trans  &up     &trans   &trans  &trans   
-&trans   &m_fq    &fr_ht LMETA R  &trans   &ft_ht RALT T   &trans   &trans   &left   &down   &right   &volup  &trans   
-&trans   &m_fa    &m_fx           &trans   &m_fv           &trans   &trans   &trans  &trans  &trans   &voldn  &trans   
+&trans   &trans   &m_fw           &trans   &fp_ht LSHFT P  &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &trans  &trans   
+&trans   &m_fq    &fr_ht LMETA R  &trans   &ft_ht RALT T   &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &volup  &trans   
+&trans   &m_fa    &m_fx           &trans   &m_fv           &trans   &trans   &kp HOME   &trans     &kp END     &voldn  &trans   
 &none &none &none &none &none &none
                         >;
                 };
@@ -711,9 +703,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &m_cw           &trans  &cp_ht LSHFT P  &trans   &trans   &mtl          &mup    &mtr     &trans   &trans   
+&trans   &trans   &m_cw           &trans  &cp_ht LSHFT P  &trans   &trans   &mtl LSHFT L  &mup    &mtr     &trans   &trans   
 &trans   &m_cq    &cr_ht LMETA R  &trans  &ct_ht RALT T   &trans   &trans   &mleft        &mdown  &mright  &trans   &trans   
-&trans   &m_ca    &cx_ht LALT X   &trans  &mbtn           &trans   &trans   &mbl LSHFT M  &mbc    &mbr     &trans   &trans   
+&trans   &m_ca    &m_cx           &trans  &mbtn           &trans   &trans   &mbl          &mcc    &mbr     &trans   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
