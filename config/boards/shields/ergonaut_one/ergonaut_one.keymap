@@ -663,9 +663,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 default_layer {
 			label = "main";
                         bindings = <
-&none  &none         &w            &f NAV F  &p &transLSHFT P &none  &none  &l LSHFT L  &u FUN U        &y                 &none       &none
+&none  &none         &w            &f NAV F  &p LSHFT P &none  &none  &l LSHFT L  &u FUN U  &y                 &none       &none
 &none  &q            &r LMETA R    &s SYM S  &t RALT T  &none  &none  &n RALT N   &e SYM2 E &o LMETA O         &z          &none
-&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &ret    &space LCTRL SPACE &i          &none
+&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &ret      &space LCTRL SPACE &i          &none
 &none &none &none &none &none &none
                         >;
                 };
