@@ -600,6 +600,7 @@ M_HT(ct)
             flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
+            hold-trigger-key-positions = <KEYS_R>; 
             bindings = <&kp>, <&kp>; 
         }; 
         rmht: rmht { 
@@ -608,6 +609,7 @@ M_HT(ct)
             flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
+            hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
         }; 
         llht: llht { 
@@ -616,6 +618,7 @@ M_HT(ct)
             flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
+            hold-trigger-key-positions = <KEYS_R>; 
             bindings = <&mo>, <&kp>; 
         }; 
         rlht: rlht { 
@@ -624,6 +627,7 @@ M_HT(ct)
             flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
+            hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&mo>, <&kp>; 
         }; 
     }; 
@@ -746,7 +750,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 			label = "main";
                         bindings = <
 &none  &none   &kp W           &llht NAV F   &lmht LSHFT P  &none  &none  &rmht LSHFT L  &rlht FUN U   &kp Y              &none   &none
-&none  &kp Q   &lmht LMETA R   &llht SYMR S  &llht EXTR T   &none  &none  &rlht EXTL N   &rlht SYML E  &rmht LMETA O      &kp Z   &none
+&none  &kp Q   &lmht LMETA R   &llht SYMR S  &llht EXTL T   &none  &none  &rlht EXTR N   &rlht SYML E  &rmht LMETA O      &kp Z   &none
 &none  &kp A   &lmht LCTRL X   &llht MOU C   &lmht LALT V   &none  &none  &rmht LALT M   &kp RET       &rmht LCTRL SPACE  &kp I   &none
 &none &none &none &none &none &none
                         >;
