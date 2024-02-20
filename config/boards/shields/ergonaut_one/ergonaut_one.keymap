@@ -88,7 +88,7 @@
         }; \
     };
 
-#define M_HT(name) \
+#define M_LHT(name) \
     / { \
         behaviors { \
             name ## _lht: name ## _lht { \
