@@ -14,10 +14,11 @@
 #define EXTL  1
 #define EXTR  2
 #define SYML  3
-#define SYMR 4
-#define NAV  5
-#define MOU  6
-#define FUN  7
+#define SYMLE  4
+#define SYMR 5
+#define NAV  6
+#define MOU  7
+#define FUN  8
 
 #undef U_MOUSE_MOVE_MAX
 #undef U_MOUSE_SCROLL_MAX
@@ -67,7 +68,7 @@
 
 #define HYPER(x) LC(LA(LS(LG(x))))
 
-#define QUICK_TAP_MS 175
+#define QUICK_TAP_MS 75
 #define TAP_TERM_MS 300
  
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // left hand
@@ -87,6 +88,19 @@
         }; \
     };
 
+#define M_HT(name) \
+    / { \
+        behaviors { \
+            name ## _lht: name ## _lht { \
+                compatible = "zmk,behavior-hold-tap"; \
+				#binding-cells = <2>; \
+                flavor = "tap-preferred"; \
+	            tapping-term-ms = <TAP_TERM_MS>; \
+                quick-tap-ms = <QUICK_TAP_MS>; \
+                bindings = <&mo>, <&m_ ## name >; \
+            }; \
+        }; \
+    };
 ZMK_BEHAVIOR(m_tq, macro, bindings = <&macro_tap &kp T &kp Q>;)
 ZMK_BEHAVIOR(m_ta, macro, bindings = <&macro_tap &kp T &kp A>;)
 
@@ -152,7 +166,7 @@ ZMK_BEHAVIOR(m_em, macro, bindings = <&macro_tap &kp E &kp M>;)
 
 ZMK_BEHAVIOR(m_ey, macro, bindings = <&macro_tap &kp E &kp Y>;)
 ZMK_BEHAVIOR(m_eo, macro, bindings = <&macro_tap &kp E &kp O>;)
-ZMK_BEHAVIOR(m_espace, macro, bindings = <&macro_tap &kp E &kp SPACE>;)
+ZMK_BEHAVIOR(m_esp, macro, bindings = <&macro_tap &kp E &kp SPACE>;)
 
 ZMK_BEHAVIOR(m_ez, macro, bindings = <&macro_tap &kp E &kp Z>;)
 ZMK_BEHAVIOR(m_ei, macro, bindings = <&macro_tap &kp E &kp I>;)
@@ -181,7 +195,7 @@ M_HT(sp)
 M_HT(st)
 
 M_HT(el)
-M_HT(en)
+M_LHT(en)
 M_HT(eo)
 
 M_HT(ul)
@@ -615,19 +629,17 @@ M_HT(ct)
         llht: llht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
-            flavor = "balanced"; 
+            flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
-            hold-trigger-key-positions = <KEYS_R>; 
             bindings = <&mo>, <&kp>; 
         }; 
         rlht: rlht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
-            flavor = "balanced"; 
+            flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
-            hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&mo>, <&kp>; 
         }; 
     }; 
@@ -754,7 +766,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                         >;
                 };
 
-                defaul_ext_left_layer {
+                default_ext_left_layer {
 			label = "main ext left";
                         bindings = <
 &none  &none   &m_tw             &m_tf  &trans  &none  &none  &kp J  &kp U   &kp Y      &none   &none
@@ -765,7 +777,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 };
 
 
-                defaul_ext_right_layer {
+                default_ext_right_layer {
 			label = "main ext right";
                         bindings = <
 &none  &none   &kp W   &kp F   &kp G   &none  &none  &trans   &m_nu    &m_ny               &none   &none
@@ -776,11 +788,21 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 };
 
         symbol_left_layer {
-			label = "symbol2";
+			label = "symbol left";
                         bindings = <
-&trans   &trans   &semi  &dllr  &at     &trans     &trans   &el_ht LSHFT L  &trans    &m_ey           &trans   &trans   
-&trans   &grave   &tab   &esc   &bspc   &trans     &trans   &en_ht RALT N   &trans    &eo_ht LMETA O  &m_ez    &trans   
-&trans   &del     &pipe  &amps  &hash   &trans     &trans   &m_em           &trans    &m_espace       &m_ei    &trans   
+&trans   &trans     &kp SEMI  &kp DLLR  &kp AT     &trans     &trans   &el_ht LSHFT L  &trans    &m_ey           &trans   &trans   
+&trans   &kp GRAVE  &kp TAB   &kp ESC   &kp BSPC   &trans     &trans   &en_lht SYMLE N   &trans    &eo_ht LMETA O  &m_ez    &trans   
+&trans   &kp DEL    &kp PIPE  &kp AMPS  &kp HASH   &trans     &trans   &m_em           &trans    &m_esp       &m_ei    &trans   
+&none &none &none &none &none &none
+                        > ;
+                };
+
+        symbol_left_ext_layer {
+			label = "symbol left ext";
+                        bindings = <
+&trans   &trans     &mt BSLH N1  &mt TILDE N2  &mt CARET N3     &trans     &trans   &trans &trans    &trans  &trans   &trans   
+&trans   &kp N0  &kp N4   &kp N5   &kp N6   &trans     &trans   &trans &trans    &trans  &trans   &trans   
+&trans   &trans    &kp N7  &kp N8  &kp N9   &trans     &trans   &trans &trans    &trans  &trans   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
