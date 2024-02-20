@@ -11,13 +11,11 @@
 #include <dt-bindings/zmk/mouse.h>
 
 #define DEF  0
-#define EXTL  1
-#define EXTR  2
-#define SYML  3
-#define SYMR 4
-#define NAV  5
-#define MOU  6
-#define FUN  7
+#define SYM  1
+#define SYM2 2
+#define NAV  3
+#define MOU  4
+#define FUN  5
 
 #undef U_MOUSE_MOVE_MAX
 #undef U_MOUSE_SCROLL_MAX
@@ -72,6 +70,8 @@
  
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // left hand
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35  // right hand
+#define KEYS_MOD_L 14 15 16
+#define KEYS_MOD_R 19 20 21 
 
 #define M_HT(name) \
     / { \
@@ -86,29 +86,6 @@
             }; \
         }; \
     };
-
-ZMK_BEHAVIOR(m_tq, macro, bindings = <&macro_tap &kp T &kp Q>;)
-ZMK_BEHAVIOR(m_ta, macro, bindings = <&macro_tap &kp T &kp A>;)
-
-ZMK_BEHAVIOR(m_tw, macro, bindings = <&macro_tap &kp T &kp W>;)
-ZMK_BEHAVIOR(m_tr, macro, bindings = <&macro_tap &kp T &kp R>;)
-ZMK_BEHAVIOR(m_tx, macro, bindings = <&macro_tap &kp T &kp X>;)
-
-ZMK_BEHAVIOR(m_tf, macro, bindings = <&macro_tap &kp T &kp F>;)
-ZMK_BEHAVIOR(m_ts, macro, bindings = <&macro_tap &kp T &kp S>;)
-ZMK_BEHAVIOR(m_tc, macro, bindings = <&macro_tap &kp T &kp C>;)
-
-ZMK_BEHAVIOR(m_nu, macro, bindings = <&macro_tap &kp N &kp U>;)
-ZMK_BEHAVIOR(m_ne, macro, bindings = <&macro_tap &kp N &kp E>;)
-ZMK_BEHAVIOR(m_nret, macro, bindings = <&macro_tap &kp N &kp RET>;)
-
-ZMK_BEHAVIOR(m_ny, macro, bindings = <&macro_tap &kp N &kp Y>;)
-ZMK_BEHAVIOR(m_no, macro, bindings = <&macro_tap &kp N &kp O>;)
-ZMK_BEHAVIOR(m_nsp, macro, bindings = <&macro_tap &kp N &kp SPACE>;)
-
-ZMK_BEHAVIOR(m_nz, macro, bindings = <&macro_tap &kp N &kp Z>;)
-ZMK_BEHAVIOR(m_ni, macro, bindings = <&macro_tap &kp N &kp I>;)
-
 
 ZMK_BEHAVIOR(m_sq, macro, bindings = <&macro_tap &kp S &kp Q>;)
 ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
@@ -169,12 +146,6 @@ ZMK_BEHAVIOR(m_uspace, macro, bindings = <&macro_tap &kp U &kp SPACE>;)
 ZMK_BEHAVIOR(m_uz, macro, bindings = <&macro_tap &kp U &kp Z>;)
 ZMK_BEHAVIOR(m_ui, macro, bindings = <&macro_tap &kp U &kp I>;)
 
-
-
-M_HT(tr)
-M_HT(tx)
-M_HT(no)
-M_HT(nsp)
 
 M_HT(sr)
 M_HT(sp)
@@ -327,7 +298,7 @@ M_HT(ct)
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
+                flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 hold-trigger-key-positions = <KEYS_R>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -386,7 +357,7 @@ M_HT(ct)
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
+                flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -578,61 +549,6 @@ M_HT(ct)
         }; \
     };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/ { 
-    behaviors { 
-        lmht: lmht { 
-            compatible = "zmk,behavior-hold-tap"; 
-			#binding-cells = <2>; 
-            flavor = "hold-preferred"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
-            hold-trigger-key-positions = <KEYS_R>; 
-            bindings = <&kp>, <&kp>; 
-        }; 
-        rmht: rmht { 
-            compatible = "zmk,behavior-hold-tap"; 
-			#binding-cells = <2>; 
-            flavor = "hold-preferred"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
-            hold-trigger-key-positions = <KEYS_L>; 
-            bindings = <&kp>, <&kp>; 
-        }; 
-        llht: llht { 
-            compatible = "zmk,behavior-hold-tap"; 
-			#binding-cells = <2>; 
-            flavor = "hold-preferred"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
-            hold-trigger-key-positions = <KEYS_R>; 
-            bindings = <&mo>, <&kp>; 
-        }; 
-        rlht: rlht { 
-            compatible = "zmk,behavior-hold-tap"; 
-			#binding-cells = <2>; 
-            flavor = "hold-preferred"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
-            hold-trigger-key-positions = <KEYS_L>; 
-            bindings = <&mo>, <&kp>; 
-        }; 
-    }; 
-};
-
 / {
     chosen {
         zmk,matrix_transform = &default_transform;
@@ -747,45 +663,14 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 default_layer {
 			label = "main";
                         bindings = <
-&none  &none   &kp W           &llht NAV F   &lmht LSHFT P  &none  &none  &rmht LSHFT L  &rlht FUN U   &kp Y              &none   &none
-&none  &kp Q   &lmht LMETA R   &llht SYMR S  &llht EXTL T   &none  &none  &rlht EXTR N   &rlht SYML E  &rmht LMETA O      &kp Z   &none
-&none  &kp A   &lmht LCTRL X   &llht MOU C   &lmht LALT V   &none  &none  &rmht LALT M   &kp RET       &rmht LCTRL SPACE  &kp I   &none
+&none  &none         &w            &f NAV F  &p LSHFT P &none  &none  &l LSHFT L  &u FUN U  &y                 &none       &none
+&none  &q            &r LMETA R    &s SYM S  &t RALT T  &none  &none  &n RALT N   &e SYM2 E &o LMETA O         &z          &none
+&none  &a            &x LCTRL X    &c MOU C  &v LALT V  &none  &none  &m LALT M   &ret      &space LCTRL SPACE &i          &none
 &none &none &none &none &none &none
                         >;
                 };
 
-                defaul_ext_left_layer {
-			label = "main ext left";
-                        bindings = <
-&none  &none   &m_tw             &m_tf  &trans  &none  &none  &kp J  &kp U   &kp Y      &none   &none
-&none  &m_tq   &tr_ht LMETA R  &m_ts  &trans  &none  &none  &kp H  &kp E   &kp O      &kp Z   &none
-&none  &m_ta   &tx_ht LCTRL X  &m_tc  &trans  &none  &none  &kp K  &kp RET &kp SPACE  &kp I   &none
-&none &none &none &none &none &none
-                        >;
-                };
-
-
-                defaul_ext_right_layer {
-			label = "main ext right";
-                        bindings = <
-&none  &none   &kp W   &kp F   &kp G   &none  &none  &trans   &m_nu    &m_ny               &none   &none
-&none  &kp Q   &kp R   &kp S   &kp D   &none  &none  &trans   &m_ne    &no_ht LMETA O    &m_nz   &none
-&none  &kp A   &kp X   &kp C   &kp B   &none  &none  &trans   &m_nret  &nsp_ht LCTRL SPACE  &m_ni   &none
-&none &none &none &none &none &none
-                        >;
-                };
-
-        symbol_left_layer {
-			label = "symbol2";
-                        bindings = <
-&trans   &trans   &semi  &dllr  &at     &trans     &trans   &el_ht LSHFT L  &trans    &m_ey           &trans   &trans   
-&trans   &grave   &tab   &esc   &bspc   &trans     &trans   &en_ht RALT N   &trans    &eo_ht LMETA O  &m_ez    &trans   
-&trans   &del     &pipe  &amps  &hash   &trans     &trans   &m_em           &trans    &m_espace       &m_ei    &trans   
-&none &none &none &none &none &none
-                        > ;
-                };
-
-		symbol_right_layer {
+		symbol_layer {
 			label = "symbol";
                        bindings = <
 &trans   &trans   &m_sw            &trans   &sp_ht LSHFT P &trans   &none    &lpar   &rpar   &qmark  &none    &trans   
@@ -795,6 +680,15 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                         >;
                 };
 
+        symbol2_layer {
+			label = "symbol2";
+                        bindings = <
+&trans   &trans   &semi  &dllr  &at     &trans     &trans   &el_ht LSHFT L  &trans    &m_ey           &trans   &trans   
+&trans   &grave   &tab   &esc   &bspc   &trans     &trans   &en_ht RALT N   &trans    &eo_ht LMETA O  &m_ez    &trans   
+&trans   &del     &pipe  &amps  &hash   &trans     &trans   &m_em           &trans    &m_espace       &m_ei    &trans   
+&none &none &none &none &none &none
+                        > ;
+                };
 
 		navigation_layer {
 			label = "navigation";
