@@ -298,7 +298,7 @@ M_HT(ct)
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
+                flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 hold-trigger-key-positions = <KEYS_R>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -357,7 +357,7 @@ M_HT(ct)
             name: name { \
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
+                flavor = "balanced"; \
 	            tapping-term-ms = <TAP_TERM_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _RA>; \
