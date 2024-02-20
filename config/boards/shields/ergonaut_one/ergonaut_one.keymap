@@ -597,7 +597,7 @@ M_HT(ct)
         lmht: lmht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
-            flavor = "tap-preffered"; 
+            flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_R>; 
@@ -606,7 +606,7 @@ M_HT(ct)
         rmht: rmht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
-            flavor = "tap-preffered"; 
+            flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
@@ -615,7 +615,7 @@ M_HT(ct)
         llht: llht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
-            flavor = "tap-preffered"; 
+            flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_R>; 
@@ -624,7 +624,7 @@ M_HT(ct)
         rlht: rlht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
-            flavor = "tap-preffered"; 
+            flavor = "tap-preferred"; 
             tapping-term-ms = <TAP_TERM_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
