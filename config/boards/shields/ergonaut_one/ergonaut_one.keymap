@@ -95,13 +95,13 @@
         vbup: vbup{ 
             compatible = "zmk,behavior-mod-morph"; 
             #binding-cells = <0>; 
-            bindings = <&kp K_VOL_UP>, <&kp K_BRI_UP>; 
+            bindings = <&kp C_VOL_UP>, <&kp C_BRI_UP>; 
             mods = <(MOD_LSFT)>; 
         }; 
         vbdn: vbdn{ 
             compatible = "zmk,behavior-mod-morph"; 
             #binding-cells = <0>; 
-            bindings = <&kp K_VOL_DN>, <&kp K_BRI_DN>; 
+            bindings = <&kp C_VOL_DN>, <&kp C_BRI_DN>; 
             mods = <(MOD_LSFT)>; 
         }; 
     }; 
