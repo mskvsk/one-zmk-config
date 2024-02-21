@@ -68,8 +68,9 @@
 
 #define HYPER(x) LC(LA(LS(LG(x))))
 
-#define QUICK_TAP_MS 125
-#define TAP_TERM_MS 200
+#define QUICK_TAP_MS 150
+#define TAP_TERM_L_MS 200
+#define TAP_TERM_M_MS 250
  
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // left hand
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35  // right hand
@@ -81,7 +82,7 @@
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 bindings = <&kp>, <&m_ ## name >; \
             }; \
@@ -95,7 +96,7 @@
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_L_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 bindings = <&mo>, <&m_ ## name >; \
             }; \
@@ -612,7 +613,7 @@ M_HT(ct)
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
             flavor = "balanced"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
+            tapping-term-ms = <TAP_TERM_M_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_R>; 
             bindings = <&kp>, <&kp>; 
@@ -621,7 +622,7 @@ M_HT(ct)
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
             flavor = "balanced"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
+            tapping-term-ms = <TAP_TERM_M_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
@@ -630,7 +631,7 @@ M_HT(ct)
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
             flavor = "balanced"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
+            tapping-term-ms = <TAP_TERM_L_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
@@ -638,7 +639,7 @@ M_HT(ct)
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
             flavor = "balanced"; 
-            tapping-term-ms = <TAP_TERM_MS>; 
+            tapping-term-ms = <TAP_TERM_L_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
@@ -664,8 +665,8 @@ M_HT(ct)
     acceleration-exponent = <1>;
 };
 
-&lt { quick_tap_ms = <200>; };
-&mt { quick_tap_ms = <200>; };
+&lt { quick_tap_ms = <TAP_TERM_L_MS>; };
+&mt { quick_tap_ms = <TAP_TERM_M_MS>; };
 
 /* main */
 MM_SHIFT_RALT(q, &kp Q, &kp LS(Q), &kp Q)
@@ -808,7 +809,7 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 };
 
 		symbol_right_layer {
-			label = "symbol";
+			label = "symbol right";
                        bindings = <
 &trans   &trans   &m_sw            &trans   &sp_ht LSHFT P &trans   &none    &lpar   &rpar   &qmark  &none    &trans   
 &trans   &m_sq    &sr_ht LMETA R   &trans   &st_ht RALT T  &trans   &none    &dot    &comma  &fslh   &under   &trans   
