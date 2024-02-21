@@ -46,28 +46,6 @@
 #define SCROLL_LEFT SCRL_X(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCRL_X(U_MOUSE_SCROLL_MAX)
 
-#define ZMK_HELPER_STRINGIFY(x) #x
-
-#define ZMK_BEHAVIOR_CORE_caps_word   compatible = "zmk,behavior-caps-word";  #binding-cells = <0>
-#define ZMK_BEHAVIOR_CORE_hold_tap    compatible = "zmk,behavior-hold-tap";   #binding-cells = <2>
-#define ZMK_BEHAVIOR_CORE_key_repeat  compatible = "zmk,behavior-key-repeat"; #binding-cells = <0>
-#define ZMK_BEHAVIOR_CORE_macro       compatible = "zmk,behavior-macro";      #binding-cells = <0>
-#define ZMK_BEHAVIOR_CORE_mod_morph   compatible = "zmk,behavior-mod-morph";  #binding-cells = <0>
-#define ZMK_BEHAVIOR_CORE_sticky_key  compatible = "zmk,behavior-sticky-key"; #binding-cells = <1>
-#define ZMK_BEHAVIOR_CORE_tap_dance   compatible = "zmk,behavior-tap-dance";  #binding-cells = <0>
-#define ZMK_BEHAVIOR_CORE_tri_state   compatible = "zmk,behavior-tri-state";  #binding-cells = <0>
-
-#define ZMK_BEHAVIOR(name, type, ...) \
-    / { \
-        behaviors { \
-            name: name { \
-                ZMK_BEHAVIOR_CORE_ ## type; \
-                __VA_ARGS__ \
-            }; \
-        }; \
-    };
-
-
 #define HYPER(x) LC(LA(LS(LG(x))))
 
 #define QUICK_TAP_MS 150
@@ -112,6 +90,19 @@
             tapping-term-ms = <TAP_TERM_L_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
+        }; 
+
+        vbup: vbup{ 
+            compatible = "zmk,behavior-mod-morph"; 
+            #binding-cells = <0>; 
+            bindings = <&kp K_VOL_UP>, <&kp K_BRI_UP>; 
+            mods = <(MOD_LSFT)>; 
+        }; 
+        vbdn: vbdn{ 
+            compatible = "zmk,behavior-mod-morph"; 
+            #binding-cells = <0>; 
+            bindings = <&kp K_VOL_DN>, <&kp K_BRI_DN>; 
+            mods = <(MOD_LSFT)>; 
         }; 
     }; 
 };
@@ -207,8 +198,8 @@
 			label = "navigation";
                         bindings = <
 &trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &trans  &trans   
-&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &volup  &trans   
-&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp HOME   &trans     &kp END     &voldn  &trans   
+&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbup  &trans   
+&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp HOME   &trans     &kp END     &vbdn  &trans   
 &none &none &none &none &none &none
                         >;
                 };
