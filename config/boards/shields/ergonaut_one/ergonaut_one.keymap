@@ -193,6 +193,15 @@
                         >;
                 };
 
+		symbol_right_ext_layer {
+			label = "symbol right ext";
+                       bindings = <
+&trans   &trans   &trans   &trans   &trans  &trans   &none    &kp LBRC  &kp RBRC   &kp EXCL  &none      &trans   
+&trans   &trans   &trans   &trans   &trans  &trans   &none    &kp COLON   &kp EQUAL  &kp STAR   &kp PRCNT  &trans   
+&trans   &trans   &trans   &trans   &trans  &trans   &none    &kp LBKT    &kp RBKT     &kp DQT    &kp PLUS  &trans   
+&none &none &none &none &none &none
+                        >;
+                };
 
 		navigation_layer {
 			label = "navigation";
