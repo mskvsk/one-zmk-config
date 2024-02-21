@@ -74,7 +74,7 @@
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
-        }; 
+        };
         llht: llht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
@@ -146,20 +146,20 @@
                 default_ext_left_layer {
 			label = "main ext left";
                         bindings = <
-&none  &none   &trans  &trans  &trans  &none  &none  &kp J  &kp U   &kp Y      &none   &none
-&none  &trans  &trans  &trans  &trans  &none  &none  &kp H  &kp E   &kp O      &kp Z   &none
-&none  &trans  &trans  &trans  &trans  &none  &none  &kp K  &kp RET &kp SPACE  &kp I   &none
-&none &none &none &none &none &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp J  &kp U   &kp Y      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp H  &kp E   &kp O      &kp Z   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K  &kp RET &kp SPACE  &kp I   &trans
+&trans &trans &trans &trans &trans &trans
                         >;
                 };
 
                 default_ext_right_layer {
 			label = "main ext right";
                         bindings = <
-&none  &none   &kp W   &kp F   &kp G   &none  &none  &trans   &trans  &trans  &none    &none
-&none  &kp Q   &kp R   &kp S   &kp D   &none  &none  &trans   &trans  &trans  &trans   &none
-&none  &kp A   &kp X   &kp C   &kp B   &none  &none  &trans   &trans  &trans  &trans   &none
-&none &none &none &none &none &none
+&trans  &trans  &kp W   &kp F   &kp G   &trans  &trans  &trans   &trans  &trans  &trans  &trans
+&trans  &kp Q   &kp R   &kp S   &kp D   &trans  &trans  &trans   &trans  &trans  &trans  &trans
+&trans  &kp A   &kp X   &kp C   &kp B   &trans  &trans  &trans   &trans  &trans  &trans  &trans
+&trans &trans &trans &trans &trans &trans
                         >;
                 };
 
@@ -169,7 +169,7 @@
 &trans   &trans     &kp SEMI  &kp DLLR  &kp AT     &trans   &trans   &trans         &trans    &trans  &trans   &trans   
 &trans   &kp GRAVE  &kp TAB   &kp ESC   &kp BSPC   &trans   &trans   &rlht SYMLE N  &trans    &trans  &trans   &trans   
 &trans   &kp DEL    &kp PIPE  &kp AMPS  &kp HASH   &trans   &trans   &trans         &trans    &trans  &trans   &trans   
-&none &none &none &none &none &none
+&trans &trans &trans &trans &trans &trans
                         > ;
                 };
 
@@ -179,27 +179,27 @@
 &trans   &trans     &mt BSLH N1  &mt TILDE N2  &mt CARET N3     &trans     &trans   &trans &trans    &trans  &trans   &trans   
 &trans   &kp N0  &kp N4   &kp N5   &kp N6   &trans     &trans   &trans &trans    &trans  &trans   &trans   
 &trans   &trans    &kp N7  &kp N8  &kp N9   &trans     &trans   &trans &trans    &trans  &trans   &trans   
-&none &none &none &none &none &none
+&trans &trans &trans &trans &trans &trans
                         > ;
                 };
 
 		symbol_right_layer {
 			label = "symbol right";
                        bindings = <
-&trans   &trans   &trans   &trans   &trans         &trans   &none    &kp LPAR  &kp RPAR   &kp QMARK  &none      &trans   
-&trans   &trans   &trans   &trans   &llht SYMRE N  &trans   &none    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER  &trans   
-&trans   &trans   &trans   &trans   &trans         &trans   &none    &kp LT    &kp GT     &kp SQT    &kp MINUS  &trans   
-&none &none &none &none &none &none
+&trans   &trans   &trans   &trans   &trans         &trans   &trans    &kp LPAR  &kp RPAR   &kp QMARK  &trans      &trans   
+&trans   &trans   &trans   &trans   &llht SYMRE N  &trans   &trans    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER  &trans   
+&trans   &trans   &trans   &trans   &trans         &trans   &trans    &kp LT    &kp GT     &kp SQT    &kp MINUS  &trans   
+&trans &trans &trans &trans &trans &trans
                         >;
                 };
 
 		symbol_right_ext_layer {
 			label = "symbol right ext";
                        bindings = <
-&trans   &trans   &trans   &trans   &trans  &trans   &none    &kp LBRC  &kp RBRC   &kp EXCL  &none      &trans   
-&trans   &trans   &trans   &trans   &trans  &trans   &none    &kp COLON   &kp EQUAL  &kp STAR   &kp PRCNT  &trans   
-&trans   &trans   &trans   &trans   &trans  &trans   &none    &kp LBKT    &kp RBKT     &kp DQT    &kp PLUS  &trans   
-&none &none &none &none &none &none
+&trans   &trans   &trans   &trans   &trans  &trans   &trans    &kp LBRC  &kp RBRC   &kp EXCL  &trans      &trans   
+&trans   &trans   &trans   &trans   &trans  &trans   &trans    &kp COLON   &kp EQUAL  &kp STAR   &kp PRCNT  &trans   
+&trans   &trans   &trans   &trans   &trans  &trans   &trans    &kp LBKT    &kp RBKT     &kp DQT    &kp PLUS  &trans   
+&trans &trans &trans &trans &trans &trans
                         >;
                 };
 
@@ -209,17 +209,17 @@
 &trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &trans  &trans   
 &trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbup  &trans   
 &trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp HOME   &trans     &kp END     &vbdn  &trans   
-&none &none &none &none &none &none
+&trans &trans &trans &trans &trans &trans
                         >;
                 };
 
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &trans  &trans  &trans           &trans   &trans   &kp HYPER(A)    &mmv MOVE_UP    &kp HYPER(G)     &trans   &trans   
-&trans   &trans   &trans  &trans  &llht MOUW RCLK  &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans   &trans   
-&trans   &trans   &trans  &trans  &kp LCLK         &trans   &trans   &kp HYPER(C)    &kp HYPER(E)    &kp HYPER(K)     &trans   &trans   
-&none &none &none &none &none &none
+&trans   &trans   &trans  &trans  &trans           &trans   &trans   &kp HYPER(A)    &mmv MOVE_UP    &kp HYPER(G)     &trans      &trans   
+&trans   &trans   &trans  &trans  &llht MOUW T     &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans      &trans   
+&trans   &trans   &trans  &trans  &mkp LCLK        &trans   &trans   &kp HYPER(C)    &kp HYPER(E)    &kp HYPER(K)     &mkp RCLK   &trans   
+&trans &trans &trans &trans &trans &trans
                         > ;
                 };
 
@@ -227,10 +227,10 @@
                 mouse_wheel_layer {
 			label = "mouse wheel";
                         bindings = <
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans          &mmv MOVE_UP    &trans           &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans          &trans          &trans           &trans   &trans   
-&none &none &none &none &none &none
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans            &msc SCROLL_UP    &trans             &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &msc SCROLL_LEFT  &msc SCROLL_DOWN  &msc SCROLL_RIGHT  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans            &trans            &trans             &trans   &trans   
+&trans &trans &trans &trans &trans &trans
                         > ;
                 };
 
@@ -240,7 +240,7 @@
 &trans   &trans   &kp F1  &kp F2  &kp F3  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
 &trans   &kp F11  &kp F4  &kp F5  &kp F6  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
 &trans   &kp F10  &kp F7  &kp F8  &kp F9  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&none &none &none &none &none &none
+&trans &trans &trans &trans &trans &trans
                         > ;
                 };
         };
