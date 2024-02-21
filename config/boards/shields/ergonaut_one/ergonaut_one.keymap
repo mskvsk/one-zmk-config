@@ -236,7 +236,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_R>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -263,7 +263,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_R>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -290,7 +290,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -343,7 +343,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "tap-preferred"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 hold-trigger-key-positions = <KEYS_R>; \
                 bindings = <&kp>, <&name ## _RA>; \
             }; \
@@ -375,7 +375,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -402,7 +402,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "tap-preferred"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _RA>; \
             }; \
@@ -427,7 +427,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _LA>; \
@@ -522,7 +522,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _RA>; \
@@ -543,7 +543,7 @@ M_HT(ct)
                 compatible = "zmk,behavior-hold-tap"; \
 				#binding-cells = <2>; \
                 flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_MS>; \
+	            tapping-term-ms = <TAP_TERM_M_MS>; \
                 quick-tap-ms = <QUICK_TAP_MS>; \
                 hold-trigger-key-positions = <KEYS_L>; \
                 bindings = <&kp>, <&name ## _LA>; \
