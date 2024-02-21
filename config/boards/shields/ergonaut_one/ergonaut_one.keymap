@@ -770,20 +770,19 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 default_ext_left_layer {
 			label = "main ext left";
                         bindings = <
-&none  &none   &m_tw             &m_tf  &trans  &none  &none  &kp J  &kp U   &kp Y      &none   &none
-&none  &m_tq   &tr_ht LMETA R  &m_ts  &trans  &none  &none  &kp H  &kp E   &kp O      &kp Z   &none
-&none  &m_ta   &tx_ht LCTRL X  &m_tc  &trans  &none  &none  &kp K  &kp RET &kp SPACE  &kp I   &none
+&none  &none   &trans  &trans  &trans  &none  &none  &kp J  &kp U   &kp Y      &none   &none
+&none  &trans  &trans  &trans  &trans  &none  &none  &kp H  &kp E   &kp O      &kp Z   &none
+&none  &trans  &trans  &trans  &trans  &none  &none  &kp K  &kp RET &kp SPACE  &kp I   &none
 &none &none &none &none &none &none
                         >;
                 };
 
-
                 default_ext_right_layer {
 			label = "main ext right";
                         bindings = <
-&none  &none   &kp W   &kp F   &kp G   &none  &none  &trans   &m_nu    &m_ny               &none   &none
-&none  &kp Q   &kp R   &kp S   &kp D   &none  &none  &trans   &m_ne    &no_ht LMETA O    &m_nz   &none
-&none  &kp A   &kp X   &kp C   &kp B   &none  &none  &trans   &m_nret  &nsp_ht LCTRL SPACE  &m_ni   &none
+&none  &none   &kp W   &kp F   &kp G   &none  &none  &trans   &trans  &trans  &none    &none
+&none  &kp Q   &kp R   &kp S   &kp D   &none  &none  &trans   &trans  &trans  &trans   &none
+&none  &kp A   &kp X   &kp C   &kp B   &none  &none  &trans   &trans  &trans  &trans   &none
 &none &none &none &none &none &none
                         >;
                 };
