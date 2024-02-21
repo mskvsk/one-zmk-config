@@ -10,15 +10,17 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define DEF  0
+#define DEF   0
 #define EXTL  1
 #define EXTR  2
 #define SYML  3
-#define SYMLE  4
-#define SYMR 5
-#define NAV  6
-#define MOU  7
-#define FUN  8
+#define SYMLE 4
+#define SYMR  5
+#define SYMRE 6
+#define NAV   7
+#define MOU   8
+#define MOUW  9
+#define FUN   10
 
 #undef U_MOUSE_MOVE_MAX
 #undef U_MOUSE_SCROLL_MAX
@@ -74,540 +76,7 @@
  
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // left hand
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35  // right hand
-
-#define M_HT(name) \
-    / { \
-        behaviors { \
-            name ## _ht: name ## _ht { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                bindings = <&kp>, <&m_ ## name >; \
-            }; \
-        }; \
-    };
-
-#define M_LHT(name) \
-    / { \
-        behaviors { \
-            name ## _lht: name ## _lht { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_L_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                bindings = <&mo>, <&m_ ## name >; \
-            }; \
-        }; \
-    };
-ZMK_BEHAVIOR(m_tq, macro, bindings = <&macro_tap &kp T &kp Q>;)
-ZMK_BEHAVIOR(m_ta, macro, bindings = <&macro_tap &kp T &kp A>;)
-
-ZMK_BEHAVIOR(m_tw, macro, bindings = <&macro_tap &kp T &kp W>;)
-ZMK_BEHAVIOR(m_tr, macro, bindings = <&macro_tap &kp T &kp R>;)
-ZMK_BEHAVIOR(m_tx, macro, bindings = <&macro_tap &kp T &kp X>;)
-
-ZMK_BEHAVIOR(m_tf, macro, bindings = <&macro_tap &kp T &kp F>;)
-ZMK_BEHAVIOR(m_ts, macro, bindings = <&macro_tap &kp T &kp S>;)
-ZMK_BEHAVIOR(m_tc, macro, bindings = <&macro_tap &kp T &kp C>;)
-
-ZMK_BEHAVIOR(m_nu, macro, bindings = <&macro_tap &kp N &kp U>;)
-ZMK_BEHAVIOR(m_ne, macro, bindings = <&macro_tap &kp N &kp E>;)
-ZMK_BEHAVIOR(m_nret, macro, bindings = <&macro_tap &kp N &kp RET>;)
-
-ZMK_BEHAVIOR(m_ny, macro, bindings = <&macro_tap &kp N &kp Y>;)
-ZMK_BEHAVIOR(m_no, macro, bindings = <&macro_tap &kp N &kp O>;)
-ZMK_BEHAVIOR(m_nsp, macro, bindings = <&macro_tap &kp N &kp SPACE>;)
-
-ZMK_BEHAVIOR(m_nz, macro, bindings = <&macro_tap &kp N &kp Z>;)
-ZMK_BEHAVIOR(m_ni, macro, bindings = <&macro_tap &kp N &kp I>;)
-
-
-ZMK_BEHAVIOR(m_sq, macro, bindings = <&macro_tap &kp S &kp Q>;)
-ZMK_BEHAVIOR(m_sa, macro, bindings = <&macro_tap &kp S &kp A>;)
-
-ZMK_BEHAVIOR(m_sw, macro, bindings = <&macro_tap &kp S &kp W>;)
-ZMK_BEHAVIOR(m_sr, macro, bindings = <&macro_tap &kp S &kp R>;)
-ZMK_BEHAVIOR(m_sx, macro, bindings = <&macro_tap &kp S &kp X>;)
-
-ZMK_BEHAVIOR(m_sp, macro, bindings = <&macro_tap &kp S &kp P>;)
-ZMK_BEHAVIOR(m_st, macro, bindings = <&macro_tap &kp S &kp T>;)
-ZMK_BEHAVIOR(m_sv, macro, bindings = <&macro_tap &kp S &kp V>;)
-
-
-ZMK_BEHAVIOR(m_fq, macro, bindings = <&macro_tap &kp F &kp Q>;)
-ZMK_BEHAVIOR(m_fa, macro, bindings = <&macro_tap &kp F &kp A>;)
-
-ZMK_BEHAVIOR(m_fw, macro, bindings = <&macro_tap &kp F &kp W>;)
-ZMK_BEHAVIOR(m_fr, macro, bindings = <&macro_tap &kp F &kp R>;)
-ZMK_BEHAVIOR(m_fx, macro, bindings = <&macro_tap &kp F &kp X>;)
-
-ZMK_BEHAVIOR(m_fp, macro, bindings = <&macro_tap &kp F &kp P>;)
-ZMK_BEHAVIOR(m_ft, macro, bindings = <&macro_tap &kp F &kp T>;)
-ZMK_BEHAVIOR(m_fv, macro, bindings = <&macro_tap &kp F &kp V>;)
-
-
-ZMK_BEHAVIOR(m_cq, macro, bindings = <&macro_tap &kp C &kp Q>;)
-ZMK_BEHAVIOR(m_ca, macro, bindings = <&macro_tap &kp C &kp A>;)
-
-ZMK_BEHAVIOR(m_cw, macro, bindings = <&macro_tap &kp C &kp W>;)
-ZMK_BEHAVIOR(m_cr, macro, bindings = <&macro_tap &kp C &kp R>;)
-ZMK_BEHAVIOR(m_cx, macro, bindings = <&macro_tap &kp C &kp X>;)
-
-ZMK_BEHAVIOR(m_cp, macro, bindings = <&macro_tap &kp C &kp P>;)
-ZMK_BEHAVIOR(m_ct, macro, bindings = <&macro_tap &kp C &kp T>;)
-ZMK_BEHAVIOR(m_cv, macro, bindings = <&macro_tap &kp C &kp V>;)
-
-
-ZMK_BEHAVIOR(m_el, macro, bindings = <&macro_tap &kp E &kp L>;)
-ZMK_BEHAVIOR(m_en, macro, bindings = <&macro_tap &kp E &kp N>;)
-ZMK_BEHAVIOR(m_em, macro, bindings = <&macro_tap &kp E &kp M>;)
-
-ZMK_BEHAVIOR(m_ey, macro, bindings = <&macro_tap &kp E &kp Y>;)
-ZMK_BEHAVIOR(m_eo, macro, bindings = <&macro_tap &kp E &kp O>;)
-ZMK_BEHAVIOR(m_esp, macro, bindings = <&macro_tap &kp E &kp SPACE>;)
-
-ZMK_BEHAVIOR(m_ez, macro, bindings = <&macro_tap &kp E &kp Z>;)
-ZMK_BEHAVIOR(m_ei, macro, bindings = <&macro_tap &kp E &kp I>;)
-
-
-ZMK_BEHAVIOR(m_ul, macro, bindings = <&macro_tap &kp U &kp L>;)
-ZMK_BEHAVIOR(m_un, macro, bindings = <&macro_tap &kp U &kp N>;)
-ZMK_BEHAVIOR(m_um, macro, bindings = <&macro_tap &kp U &kp M>;)
-
-ZMK_BEHAVIOR(m_uy, macro, bindings = <&macro_tap &kp U &kp Y>;)
-ZMK_BEHAVIOR(m_uo, macro, bindings = <&macro_tap &kp U &kp O>;)
-ZMK_BEHAVIOR(m_uspace, macro, bindings = <&macro_tap &kp U &kp SPACE>;)
-
-ZMK_BEHAVIOR(m_uz, macro, bindings = <&macro_tap &kp U &kp Z>;)
-ZMK_BEHAVIOR(m_ui, macro, bindings = <&macro_tap &kp U &kp I>;)
-
-
-
-M_HT(tr)
-M_HT(tx)
-M_HT(no)
-M_HT(nsp)
-
-M_HT(sr)
-M_HT(sp)
-M_HT(st)
-
-M_HT(el)
-M_LHT(en)
-M_HT(eo)
-
-M_HT(ul)
-M_HT(un)
-M_HT(uo)
-
-M_HT(fr)
-M_HT(fp)
-M_HT(ft)
-
-M_HT(cr)
-M_HT(cp)
-M_HT(ct)
-
-#define MM_SHIFT_LALT_RALT_LHT(name, none, s, la, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _LA: name ## _LA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _LA>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_R>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_RALT_LHT(name, none, s, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_R>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_RALT_RHT(name, none, s, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_L>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define LT_SHIFT_RALT_HT(name, none, s, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
-	            tapping-term-ms = <200>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                bindings = <&mo>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_RALT_LHT_NOQT(name, none, s, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                hold-trigger-key-positions = <KEYS_R>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_LALT_RALT_RHT(name, none, s, la, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _LA: name ## _LA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _LA>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_L>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_RALT_RHT_NOQT(name, none, s, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "tap-preferred"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                hold-trigger-key-positions = <KEYS_L>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-#define MM_SHIFT_LALT_RHT(name, none, s, la) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _LA: name ## _LA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_L>; \
-                bindings = <&kp>, <&name ## _LA>; \
-            }; \
-        }; \
-    };
-
-
-#define MM_SHIFT_LALT_RALT(name, none, s, la, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name ## _LA: name ## _LA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _LA>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_LALT(name, none, s, la) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT_RALT(name, none, s, ra) \
-    / { \
-        behaviors { \
-            name ## _S: name ## _S{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _S>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-        }; \
-    };
-
-#define MM_SHIFT(name, none, s) \
-    / { \
-        behaviors { \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <s>; \
-                mods = <(MOD_LSFT)>; \
-            }; \
-        }; \
-    };
-
-
-#define MM_RALT_RHT(name, none, ra) \
-    / { \
-        behaviors { \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_L>; \
-                bindings = <&kp>, <&name ## _RA>; \
-            }; \
-        }; \
-    };
-
-#define MM_LALT_RHT(name, none, la) \
-    / { \
-        behaviors { \
-            name ## _LA: name ## _LA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-            name: name { \
-                compatible = "zmk,behavior-hold-tap"; \
-				#binding-cells = <2>; \
-                flavor = "balanced"; \
-	            tapping-term-ms = <TAP_TERM_M_MS>; \
-                quick-tap-ms = <QUICK_TAP_MS>; \
-                hold-trigger-key-positions = <KEYS_L>; \
-                bindings = <&kp>, <&name ## _LA>; \
-            }; \
-        }; \
-    };
-
-#define MM_LALT(name, none, la) \
-    / { \
-        behaviors { \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-        }; \
-    };
-
-#define MM_RALT(name, none, ra) \
-    / { \
-        behaviors { \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-        }; \
-    };
-
-#define MM_RALT_LALT(name, none, ra, la) \
-    / { \
-        behaviors { \
-            name ## _RA: name ## _RA{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <none>, <ra>; \
-                mods = <(MOD_RALT)>; \
-            }; \
-            name: name{ \
-                compatible = "zmk,behavior-mod-morph"; \
-                #binding-cells = <0>; \
-                bindings = <&name ## _RA>, <la>; \
-                mods = <(MOD_LALT)>; \
-            }; \
-        }; \
-    };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/ { 
+ { 
     behaviors { 
         lmht: lmht { 
             compatible = "zmk,behavior-hold-tap"; 
@@ -668,91 +137,6 @@ M_HT(ct)
 &lt { quick_tap_ms = <TAP_TERM_L_MS>; };
 &mt { quick_tap_ms = <TAP_TERM_M_MS>; };
 
-/* main */
-MM_SHIFT_RALT(q, &kp Q, &kp LS(Q), &kp Q)
-MM_SHIFT_RALT(a, &kp A, &kp LS(A), &kp A)
-
-MM_SHIFT_RALT(w, &kp W, &kp LS(W), &kp W)
-MM_SHIFT_RALT_LHT(r, &kp R, &kp LS(R), &kp R)
-MM_SHIFT_RALT_LHT(x, &kp X, &kp LS(X), &kp X)
-
-LT_SHIFT_RALT_HT(f, &kp F, &kp LS(F), &kp F)
-LT_SHIFT_RALT_HT(s, &kp S, &kp LS(S), &kp S)
-LT_SHIFT_RALT_HT(c, &kp C, &kp LS(C), &kp C)
-
-MM_SHIFT_RALT_LHT(p, &kp P, &kp LS(P), &kp G)
-MM_SHIFT_RALT_LHT_NOQT(t, &kp T, &kp LS(T), &kp D)
-MM_SHIFT_RALT_LHT(v, &kp V, &kp LS(V), &kp B)
-
-MM_SHIFT_RALT_RHT(l, &kp L, &kp LS(L), &kp J)
-MM_SHIFT_RALT_RHT_NOQT(n, &kp N, &kp LS(N), &kp H)
-MM_SHIFT_RALT_RHT(m, &kp M, &kp LS(M), &kp K)
-
-LT_SHIFT_RALT_HT(u, &kp U, &kp LS(U), &kp U)
-LT_SHIFT_RALT_HT(e, &kp E, &kp LS(E), &kp E)
-MM_RALT(ret, &kp RET, &kp RET)
-
-MM_SHIFT_RALT(y, &kp Y, &kp LS(Y), &kp Y)
-MM_SHIFT_RALT_RHT(o, &kp O, &kp LS(O), &kp O)
-MM_RALT_RHT(space, &kp SPACE, &kp SPACE)
-
-MM_SHIFT_RALT(z, &kp Z, &kp LS(Z), &kp Z)
-MM_SHIFT_RALT(i, &kp I, &kp LS(I), &kp I)
-
-/* symbol */
-
-MM_RALT(lpar, &kp LPAR, &kp LBRC)
-MM_RALT(dot, &kp DOT, &kp COLON)
-MM_RALT(lss, &kp LT, &kp LBKT)
-
-MM_RALT(rpar, &kp RPAR, &kp RBRC)
-MM_RALT(comma, &kp COMMA, &kp EQUAL)
-MM_RALT(grt, &kp GT, &kp RBKT)
-
-MM_RALT(qmark, &kp QMARK, &kp EXCL)
-MM_RALT(fslh, &kp FSLH, &kp STAR)
-MM_RALT(sqt, &kp SQT, &kp DQT)
-
-MM_RALT(under, &kp UNDER, &kp PRCNT)
-MM_RALT(minus, &kp MINUS, &kp PLUS)
-
-/* symbol 2*/
-
-MM_RALT(grave, &kp GRAVE, &kp N0)
-MM_RALT(del, &kp DEL, &kp DEL)
-
-MM_SHIFT_RALT(semi, &kp SEMI, &kp BSLH, &kp N1)
-MM_RALT(tab, &kp TAB, &kp N4)
-MM_RALT(pipe, &kp PIPE, &kp N7)
-
-MM_SHIFT_RALT(dllr, &kp DLLR, &kp TILDE, &kp N2)
-MM_RALT(esc, &kp ESC, &kp N5)
-MM_RALT(amps, &kp AMPS, &kp N8)
-
-MM_SHIFT_RALT(at, &kp AT, &kp CARET, &kp N3)
-MM_RALT(bspc, &kp BSPC, &kp N6)
-MM_RALT(hash, &kp HASH, &kp N9)
-
-/* navigation */
-
-MM_SHIFT(volup, &kp C_VOL_UP, &kp C_BRI_UP)
-MM_SHIFT(voldn, &kp C_VOL_DN, &kp C_BRI_DN)
-
-/* mouse */
-
-MM_LALT_RHT(mtl, &kp HYPER(A), &none)
-MM_RALT(mleft, &mmv MOVE_LEFT, &msc SCROLL_LEFT)
-MM_LALT(mbl, &kp HYPER(C), &none)
-
-MM_RALT(mup, &mmv MOVE_UP, &msc SCROLL_UP)
-MM_RALT(mdown, &mmv MOVE_DOWN, &msc SCROLL_DOWN)
-MM_LALT(mcc, &kp HYPER(E), &none)
-
-MM_LALT(mtr, &kp HYPER(G), &none)
-MM_RALT(mright, &mmv MOVE_RIGHT, &msc SCROLL_RIGHT)
-MM_LALT(mbr, &kp HYPER(K), &none)
-
-MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 
 / {
         keymap {
@@ -790,9 +174,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
         symbol_left_layer {
 			label = "symbol left";
                         bindings = <
-&trans   &trans     &kp SEMI  &kp DLLR  &kp AT     &trans     &trans   &el_ht LSHFT L  &trans    &m_ey           &trans   &trans   
-&trans   &kp GRAVE  &kp TAB   &kp ESC   &kp BSPC   &trans     &trans   &en_lht SYMLE N   &trans    &eo_ht LMETA O  &m_ez    &trans   
-&trans   &kp DEL    &kp PIPE  &kp AMPS  &kp HASH   &trans     &trans   &m_em           &trans    &m_esp       &m_ei    &trans   
+&trans   &trans     &kp SEMI  &kp DLLR  &kp AT     &trans   &trans   &trans         &trans    &trans  &trans   &trans   
+&trans   &kp GRAVE  &kp TAB   &kp ESC   &kp BSPC   &trans   &trans   &rlht SYMLE N  &trans    &trans  &trans   &trans   
+&trans   &kp DEL    &kp PIPE  &kp AMPS  &kp HASH   &trans   &trans   &trans         &trans    &trans  &trans   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
@@ -810,9 +194,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		symbol_right_layer {
 			label = "symbol right";
                        bindings = <
-&trans   &trans   &m_sw            &trans   &sp_ht LSHFT P &trans   &none    &lpar   &rpar   &qmark  &none    &trans   
-&trans   &m_sq    &sr_ht LMETA R   &trans   &st_ht RALT T  &trans   &none    &dot    &comma  &fslh   &under   &trans   
-&trans   &m_sa    &m_sx            &trans   &m_sv          &trans   &none    &lss    &grt    &sqt    &minus   &trans   
+&trans   &trans   &trans   &trans   &trans         &trans   &none    &kp LPAR  &kp RPAR   &kp QMARK  &none      &trans   
+&trans   &trans   &trans   &trans   &llht SYMRE N  &trans   &none    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER  &trans   
+&trans   &trans   &trans   &trans   &trans         &trans   &none    &kp LT    &kp GT     &kp SQT    &kp MINUS  &trans   
 &none &none &none &none &none &none
                         >;
                 };
@@ -821,9 +205,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
 		navigation_layer {
 			label = "navigation";
                         bindings = <
-&trans   &trans   &m_fw           &trans   &fp_ht LSHFT P  &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &trans  &trans   
-&trans   &m_fq    &fr_ht LMETA R  &trans   &ft_ht RALT T   &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &volup  &trans   
-&trans   &m_fa    &m_fx           &trans   &m_fv           &trans   &trans   &kp HOME   &trans     &kp END     &voldn  &trans   
+&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &trans  &trans   
+&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &volup  &trans   
+&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp HOME   &trans     &kp END     &voldn  &trans   
 &none &none &none &none &none &none
                         >;
                 };
@@ -831,9 +215,20 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &m_cw           &trans  &cp_ht LSHFT P  &trans   &trans   &mtl LSHFT L  &mup    &mtr     &trans   &trans   
-&trans   &m_cq    &cr_ht LMETA R  &trans  &ct_ht RALT T   &trans   &trans   &mleft        &mdown  &mright  &trans   &trans   
-&trans   &m_ca    &m_cx           &trans  &mbtn           &trans   &trans   &mbl          &mcc    &mbr     &trans   &trans   
+&trans   &trans   &trans  &trans  &trans           &trans   &trans   &kp HYPER(A)    &mmv MOVE_UP    &kp HYPER(G)     &trans   &trans   
+&trans   &trans   &trans  &trans  &llht MOUW RCLK  &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans   &trans   
+&trans   &trans   &trans  &trans  &kp LCLK         &trans   &trans   &kp HYPER(C)    &kp HYPER(E)    &kp HYPER(K)     &trans   &trans   
+&none &none &none &none &none &none
+                        > ;
+                };
+
+
+                mouse_wheel_layer {
+			label = "mouse wheel";
+                        bindings = <
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans          &mmv MOVE_UP    &trans           &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans          &trans          &trans           &trans   &trans   
 &none &none &none &none &none &none
                         > ;
                 };
@@ -841,9 +236,9 @@ MM_SHIFT(mbtn, &mkp LCLK, &mkp RCLK)
                 fun_layer {
 			label = "function";
                         bindings = <
-&trans   &trans   &kp F1  &kp F2  &kp F3  &trans     &trans   &ul_ht LSHFT L  &trans    &m_uy           &trans  &trans   
-&trans   &kp F11  &kp F4  &kp F5  &kp F6  &trans     &trans   &un_ht RALT N   &trans    &uo_ht LMETA O  &m_uz   &trans   
-&trans   &kp F10  &kp F7  &kp F8  &kp F9  &trans     &trans   &m_um           &trans    &m_uspace       &m_ui   &trans   
+&trans   &trans   &kp F1  &kp F2  &kp F3  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
+&trans   &kp F11  &kp F4  &kp F5  &kp F6  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
+&trans   &kp F10  &kp F7  &kp F8  &kp F9  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
 &none &none &none &none &none &none
                         > ;
                 };
