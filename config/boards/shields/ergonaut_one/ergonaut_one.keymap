@@ -19,7 +19,8 @@
 #define SYMRE 6
 #define NAV   7
 #define MOU   8
-#define FUN   9
+#define MOUX  9
+#define FUN   10
 
 #undef U_MOUSE_MOVE_MAX
 #undef U_MOUSE_SCROLL_MAX
@@ -223,9 +224,20 @@
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &trans  &trans    &trans           &trans   &trans   &kp HYPER(A)    &mmv MOVE_UP    &kp HYPER(G)     &trans            &trans   
-&trans   &trans   &trans  &trans    &mkp LCLK        &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCROLL_UP    &trans   
-&trans   &trans   &trans  &tog MOU  &mkp RCLK        &trans   &trans   &kp HYPER(C)    &kp HYPER(E)    &kp HYPER(K)     &msc SCROLL_DOWN  &trans   
+&trans   &trans   &trans  &trans    &trans           &trans   &trans   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP     &trans     &trans   
+&trans   &trans   &trans  &trans    &lt MOUX         &trans   &trans   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &mkp RCLK  &trans   
+&trans   &trans   &trans  &tog MOU  &trans           &trans   &trans   &msc SCROLL_LEFT   &trans          &msc SCROLL_RIGHT  &mkp LCLK  &trans   
+&trans &trans &trans &trans &trans &trans
+                        > ;
+                };
+
+
+                mouse_wheel_layer {
+			label = "mouse ext";
+                        bindings = <
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(A)  &kp HYPER(D)  &kp HYPER(G)  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(B)  &kp HYPER(E)  &kp HYPER(H)  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(C)  &kp HYPER(F)  &kp HYPER(I)  &trans   &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
