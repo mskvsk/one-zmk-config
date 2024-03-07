@@ -19,8 +19,7 @@
 #define SYMRE 6
 #define NAV   7
 #define MOU   8
-#define MOUW  9
-#define FUN   10
+#define FUN   9
 
 #undef U_MOUSE_MOVE_MAX
 #undef U_MOUSE_SCROLL_MAX
@@ -83,6 +82,14 @@
             quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
+        lltg: lltg { 
+            compatible = "zmk,behavior-hold-tap"; 
+			#binding-cells = <2>; 
+            flavor = "balanced"; 
+            tapping-term-ms = <TAP_TERM_L_MS>; 
+            quick-tap-ms = <QUICK_TAP_MS>; 
+            bindings = <&tog>, <&kp>; 
+        }; 
         rlht: rlht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
@@ -138,7 +145,7 @@
                         bindings = <
 &none  &none   &kp W           &llht NAV F   &lmht LSHFT P  &none  &none  &rmht LSHFT L  &rlht FUN U   &kp Y              &none   &none
 &none  &kp Q   &lmht LMETA R   &llht SYMR S  &llht EXTL T   &none  &none  &rlht EXTR N   &rlht SYML E  &rmht LMETA O      &kp Z   &none
-&none  &kp A   &lmht LCTRL X   &llht MOU C   &lmht LALT V   &none  &none  &rmht LALT M   &kp RET       &rmht LCTRL SPACE  &kp I   &none
+&none  &kp A   &lmht LCTRL X   &lltg MOU C   &lmht LALT V   &none  &none  &rmht LALT M   &kp RET       &rmht LCTRL SPACE  &kp I   &none
 &none &none &none &none &none &none
                         >;
                 };
@@ -216,20 +223,9 @@
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans   &trans  &trans  &trans           &trans   &trans   &kp HYPER(A)    &mmv MOVE_UP    &kp HYPER(G)     &trans      &trans   
-&trans   &trans   &trans  &trans  &llht MOUW T     &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans      &trans   
-&trans   &trans   &trans  &trans  &mkp LCLK        &trans   &trans   &kp HYPER(C)    &kp HYPER(E)    &kp HYPER(K)     &mkp RCLK   &trans   
-&trans &trans &trans &trans &trans &trans
-                        > ;
-                };
-
-
-                mouse_wheel_layer {
-			label = "mouse wheel";
-                        bindings = <
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans            &msc SCROLL_UP    &trans             &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &msc SCROLL_LEFT  &msc SCROLL_DOWN  &msc SCROLL_RIGHT  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans            &trans            &trans             &trans   &trans   
+&trans   &trans   &trans  &trans    &trans           &trans   &trans   &kp HYPER(A)    &mmv MOVE_UP    &kp HYPER(G)     &trans            &trans   
+&trans   &trans   &trans  &trans    &mkp LCLK        &trans   &trans   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCROLL_UP    &trans   
+&trans   &trans   &trans  &tog MOU  &mkp RCLK        &trans   &trans   &kp HYPER(C)    &kp HYPER(E)    &kp HYPER(K)     &msc SCROLL_DOWN  &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
