@@ -123,30 +123,6 @@
             bindings = <&kp C_VOL_DN>, <&kp C_BRI_DN>; 
             mods = <(MOD_LSFT)>; 
         }; 
-        mup: mup{ 
-            compatible = "zmk,behavior-mod-morph"; 
-            #binding-cells = <0>; 
-            bindings = <&mmv MOVE_UP>, <&mmv MOVE_UP_FAST>; 
-            mods = <(MOD_LALT)>; 
-        }; 
-        mdown: mdown{ 
-            compatible = "zmk,behavior-mod-morph"; 
-            #binding-cells = <0>; 
-            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_DOWN_FAST>; 
-            mods = <(MOD_LALT)>; 
-        }; 
-        mleft: mleft{ 
-            compatible = "zmk,behavior-mod-morph"; 
-            #binding-cells = <0>; 
-            bindings = <&mmv MOVE_LEFT>, <&mmv MOVE_LEFT_FAST>; 
-            mods = <(MOD_LALT)>; 
-        }; 
-        mright: mright{ 
-            compatible = "zmk,behavior-mod-morph"; 
-            #binding-cells = <0>; 
-            bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_RIGHT_FAST>; 
-            mods = <(MOD_LALT)>; 
-        }; 
     }; 
 };
 
@@ -259,15 +235,25 @@
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans     &trans             &trans    &lmht LSHFT LG(P)  &trans   &trans   &msc SCROLL_DOWN   &mup       &msc SCROLL_UP   &trans     &trans   
-&trans   &trans     &lmht LMETA LG(R)  &tog MOU  &lmht LALT BSPC    &trans   &trans   &mleft             &mdown     &mright          &mkp RCLK  &trans   
-&trans   &kp LG(A)  &kp LG(X)          &kp LG(C) &kp LG(V)          &trans   &trans   &kp LG(L)          &trans     &trans           &mkp LCLK  &trans   
+&trans   &trans     &trans             &trans    &lmht LSHFT LG(P)  &trans   &trans   &msc SCROLL_DOWN     &mmv MOVE_UP    &msc SCROLL_UP   &trans     &trans   
+&trans   &trans     &lmht LMETA LG(R)  &tog MOU  &llht MOUX BSPC    &trans   &trans   &mmv MOVE_LEFT       &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK  &trans   
+&trans   &kp LG(A)  &kp LG(X)          &kp LG(C) &kp LG(V)          &trans   &trans   &kp LG(L)            &trans          &trans           &mkp LCLK  &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
 
 
-                mouse_wheel_layer {
+                mouse_ext_layer {
+			label = "mouse ext";
+                        bindings = <
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans               &mmv MOVE_UP_FAST    &trans                &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &mmv MOVE_LEFT_FAST  &mmv MOVE_DOWN_FAST  &mmv MOVE_RIGHT_FAST  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans               &trans               &trans                &trans   &trans   
+&trans &trans &trans &trans &trans &trans
+                        > ;
+                };
+/*
+                mouse_ext_layer {
 			label = "mouse ext";
                         bindings = <
 &trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(A)  &kp HYPER(D)  &kp HYPER(G)  &trans   &trans   
@@ -276,6 +262,7 @@
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
+*/
 
                 fun_layer {
 			label = "function";
