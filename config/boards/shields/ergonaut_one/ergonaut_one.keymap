@@ -86,6 +86,24 @@
             hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
         };
+        lmhts: lmhts { 
+            compatible = "zmk,behavior-hold-tap"; 
+			#binding-cells = <2>; 
+            flavor = "balanced"; 
+            tapping-term-ms = <TAP_TERM_M_MS>; 
+            quick-tap-ms = <QUICK_TAP_MS>; 
+            hold-trigger-key-positions = <KEYS_R 16>; 
+            bindings = <&kp>, <&kp>; 
+        }; 
+        rmhts: rmhts { 
+            compatible = "zmk,behavior-hold-tap"; 
+			#binding-cells = <2>; 
+            flavor = "balanced"; 
+            tapping-term-ms = <TAP_TERM_M_MS>; 
+            quick-tap-ms = <QUICK_TAP_MS>; 
+            hold-trigger-key-positions = <KEYS_L 19>; 
+            bindings = <&kp>, <&kp>; 
+        };
         llht: llht { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
@@ -136,7 +154,7 @@
 };
 
 &mmv {
-    time-to-max-speed-ms = <80>;
+    time-to-max-speed-ms = <200>;
     acceleration-exponent = <1>;
 };
 
@@ -155,9 +173,9 @@
                 default_layer {
 			label = "main";
                         bindings = <
-&none  &none   &kp W           &llht NAV F   &lmht LSHFT P  &none  &none  &rmht LSHFT L  &rlht FUN U   &kp Y              &none   &none
-&none  &kp Q   &lmht LMETA R   &llht SYMR S  &llht EXTL T   &none  &none  &rlht EXTR N   &rlht SYML E  &rmht LMETA O      &kp Z   &none
-&none  &kp A   &lmht LCTRL X   &lltg MOU C   &lmht LALT V   &none  &none  &rmht LALT M   &kp RET       &rmht LCTRL SPACE  &kp I   &none
+&none  &none   &kp W           &llht NAV F   &lmhts LSHFT P  &none  &none  &rmhts LSHFT L  &rlht FUN U   &kp Y              &none   &none
+&none  &kp Q   &lmht LMETA R   &llht SYMR S  &llht EXTL T    &none  &none  &rlht EXTR N    &rlht SYML E  &rmht LMETA O      &kp Z   &none
+&none  &kp A   &lmht LCTRL X   &lltg MOU C   &lmht LALT V    &none  &none  &rmht LALT M    &kp RET       &rmht LCTRL SPACE  &kp I   &none
 &none &none &none &none &none &none
                         >;
                 };
