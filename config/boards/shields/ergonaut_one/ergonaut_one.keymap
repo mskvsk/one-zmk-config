@@ -278,9 +278,9 @@
                 mouse_layer {
 			label = "mouse";
                         bindings = <
-&trans   &trans     &kp LG(W)          &llht NAV F  &lmht LSHFT LG(P)  &trans   &trans   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &trans            &trans   
-&trans   &kp LG(Q)  &llht MOUX LG(R)   &tog MOU     &llht MOUX LG(T)   &trans   &trans   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkpht MOUX RCLK  &trans   
-&trans   &kp LG(A)  &kp LG(X)          &kp LG(C)    &kp LG(V)          &trans   &trans   &kp BSPC           &trans          &trans           &mkp LCLK         &trans   
+&trans   &trans     &kp LG(W)          &trans     &lmht LSHFT LG(P)  &trans   &trans   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &trans            &trans   
+&trans   &kp LG(Q)  &llht MOUX LG(R)   &tog MOU   &llht MOUX LG(T)   &trans   &trans   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkpht MOUX RCLK  &trans   
+&trans   &kp LG(A)  &kp LG(X)          &kp LG(C)  &kp LG(V)          &trans   &trans   &kp BSPC           &trans          &trans           &mkp LCLK         &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
@@ -291,7 +291,7 @@
                         bindings = <
 &trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(T)  &kp LC(UP)    &kp LG(W)  &trans   &trans   
 &trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(N)  &kp ESC       &kp LG(O)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans     &trans        &trans     &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &LEFT      &kp LG(R)     &RIGHT     &trans   &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
