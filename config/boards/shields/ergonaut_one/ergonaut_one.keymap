@@ -289,9 +289,9 @@
                 mouse_ext_layer {
 			label = "mouse ext";
                         bindings = <
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(T)  &kp LC(UP)    &kp LG(W)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(N)  &kp ESC       &kp LG(O)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &LEFT      &kp LG(R)     &RIGHT     &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(T)  &kp LC(UP)  &kp LG(W)  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(N)  &kp ESC     &kp LG(O)  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LEFT   &kp LG(R)   &kp RIGHT  &trans   &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
