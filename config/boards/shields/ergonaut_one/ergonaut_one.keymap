@@ -230,9 +230,9 @@
         symbol_left_ext_layer {
 			label = "symbol left ext";
                         bindings = <
-&trans   &trans     &mt BSLH N1  &mt TILDE N2  &mt CARET N3     &trans     &trans   &trans &trans    &trans  &trans   &trans   
-&trans   &kp N0  &kp N4   &kp N5   &kp N6   &trans     &trans   &trans &trans    &trans  &trans   &trans   
-&trans   &trans    &kp N7  &kp N8  &kp N9   &trans     &trans   &trans &trans    &trans  &trans   &trans   
+&trans   &trans  &mt BSLH N1  &mt TILDE N2  &mt CARET N3   &trans     &trans   &trans  &trans  &trans  &trans  &trans   
+&trans   &kp N0  &kp N4       &kp N5        &kp N6         &trans     &trans   &trans  &trans  &trans  &trans  &trans   
+&trans   &trans  &kp N7       &kp N8        &kp N9         &trans     &trans   &trans  &trans  &trans  &trans  &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
                 };
@@ -241,7 +241,7 @@
 			label = "symbol right";
                        bindings = <
 &trans   &trans   &trans   &trans   &trans         &trans   &trans    &kp LPAR  &kp RPAR   &kp QMARK  &trans      &trans   
-&trans   &trans   &trans   &trans   &llht SYMRE N  &trans   &trans    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER  &trans   
+&trans   &trans   &trans   &trans   &llht SYMRE T  &trans   &trans    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER  &trans   
 &trans   &trans   &trans   &trans   &trans         &trans   &trans    &kp LT    &kp GT     &kp SQT    &kp MINUS  &trans   
 &trans &trans &trans &trans &trans &trans
                         >;
@@ -271,7 +271,7 @@
 			label = "mouse";
                         bindings = <
 &trans   &trans     &kp LG(W)          &trans    &lmht LSHFT LG(P)  &trans   &trans   &msc SCROLL_DOWN     &mmv MOVE_UP    &msc SCROLL_UP   &trans     &trans   
-&trans   &kp LG(Q)  &lmht LMETA LG(R)  &tog MOU  &llht MOUX BSPC    &trans   &trans   &mmv MOVE_LEFT       &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK  &trans   
+&trans   &kp LG(Q)  &llht MOUX LG(R)   &tog MOU  &llht MOUX BSPC    &trans   &trans   &mmv MOVE_LEFT       &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK  &trans   
 &trans   &kp LG(A)  &kp LG(X)          &kp LG(C) &kp LG(V)          &trans   &trans   &kp LG(L)            &trans          &trans           &mkp LCLK  &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
@@ -281,8 +281,8 @@
                 mouse_ext_layer {
 			label = "mouse ext";
                         bindings = <
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans               &mmv MOVE_UP_FAST    &trans                &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &mmv MOVE_LEFT_FAST  &mmv MOVE_DOWN_FAST  &mmv MOVE_RIGHT_FAST  &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(L)  &kp LG(U)    &trans                &trans   &trans   
+&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(N)  &kp LG(E)  &kp LG(O)  &trans   &trans   
 &trans   &trans   &trans  &trans  &trans  &trans   &trans   &trans               &trans               &trans                &trans   &trans   
 &trans &trans &trans &trans &trans &trans
                         > ;
