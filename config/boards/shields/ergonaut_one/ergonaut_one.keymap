@@ -198,122 +198,100 @@
                 default_layer {
 			label = "main";
                         bindings = <
-&none  &none   &kp W           &llht NAV F   &lmhts LSHFT P  &none  &none  &rmhts LSHFT L  &rlht FUN U   &kp Y              &none   &none
-&none  &kp Q   &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &none  &none  &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &kp Z   &none
-&none  &kp A   &lmht LCTRL X   &lltg MOU C   &lmht LALT V    &none  &none  &rmht LALT M    &kp RET       &rmht LCTRL SPACE  &kp I   &none
-&none &none &none &none &none &none
-                        >;
-                };
+&kp Q   &kp W           &llht NAV F   &lmhts LSHFT P  &rmhts LSHFT L  &rlht FUN U   &kp Y              &kp Z
+&kp A   &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &kp I
+        &lmht LCTRL X   &lltg MOU C   &lmht LALT V    &rmht LALT M    &kp RET       &rmht LCTRL SPACE
+                 >;
+         };
 
-                default_ext_left_layer {
-			label = "main ext left";
-                        bindings = <
-&trans  &trans  &trans  &kp F  &trans  &trans  &trans  &kp J  &kp U   &kp Y      &trans  &trans
-&trans  &trans  &trans  &kp S  &trans  &trans  &trans  &kp H  &kp E   &kp O      &kp Z   &trans
-&trans  &trans  &trans  &kp C  &trans  &trans  &trans  &kp K  &kp RET &kp SPACE  &kp I   &trans
-&trans &trans &trans &trans &trans &trans
-                        >;
-                };
+         default_ext_left_layer {
+ 	label = "main ext left";
+                 bindings = <
+&trans  &trans  &kp F  &trans  &kp J  &kp U   &kp Y      &kp Z
+&trans  &trans  &kp S  &trans  &kp H  &kp E   &kp O      &kp I
+        &trans  &kp C  &trans  &kp K  &kp RET &kp SPACE
+                 >;
+         };
 
-                default_ext_right_layer {
-			label = "main ext right";
-                        bindings = <
-&trans  &trans  &kp W   &kp F   &kp G   &trans  &trans  &trans   &kp U  &trans  &trans  &trans
-&trans  &kp Q   &kp R   &kp S   &kp D   &trans  &trans  &trans   &kp E  &trans  &trans  &trans
-&trans  &kp A   &kp X   &kp C   &kp B   &trans  &trans  &trans   &trans &trans  &trans  &trans
-&trans &trans &trans &trans &trans &trans
-                        >;
-                };
+         default_ext_right_layer {
+ 	label = "main ext right";
+                 bindings = <
+&kp Q  &kp W   &kp F   &kp G   &trans   &kp U  &trans  &trans
+&kp A  &kp R   &kp S   &kp D   &trans   &kp E  &trans  &trans
+       &kp X   &kp C   &kp B   &trans   &trans &trans
+                 >;
+         };
 
-        symbol_left_layer {
-			label = "symbol left";
-                        bindings = <
-&trans   &trans     &kp SEMI  &kp DLLR  &kp AT     &trans   &trans   &trans         &trans    &trans  &trans   &trans   
-&trans   &kp GRAVE  &kp TAB   &kp ESC   &kp BSPC   &trans   &trans   &rlht SYMLE N  &trans    &trans  &trans   &trans   
-&trans   &kp DEL    &kp PIPE  &kp AMPS  &kp HASH   &trans   &trans   &trans         &trans    &trans  &trans   &trans   
-&trans &trans &trans &trans &trans &trans
-                        > ;
-                };
+ symbol_left_layer {
+ 	label = "symbol left";
+                 bindings = <
+&kp GRAVE  &kp SEMI  &kp DLLR  &kp AT     &trans         &trans    &trans  &trans
+&kp DEL    &kp TAB   &kp ESC   &kp BSPC   &rlht SYMLE N  &trans    &trans  &trans
+           &kp PIPE  &kp AMPS  &kp HASH   &trans         &trans    &trans
+                 > ;
+         };
 
-        symbol_left_ext_layer {
-			label = "symbol left ext";
-                        bindings = <
-&trans   &trans  &mt BSLH N1  &mt TILDE N2  &mt CARET N3   &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&trans   &kp N0  &kp N4       &kp N5        &kp N6         &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&trans   &trans  &kp N7       &kp N8        &kp N9         &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&trans &trans &trans &trans &trans &trans
-                        > ;
-                };
+ symbol_left_ext_layer {
+ 	label = "symbol left ext";
+                 bindings = <
+&trans  &mt BSLH N1  &mt TILDE N2  &mt CARET N3   &trans  &trans  &trans  &trans
+&kp N0  &kp N4       &kp N5        &kp N6         &trans  &trans  &trans  &trans
+        &kp N7       &kp N8        &kp N9         &trans  &trans  &trans
+                 > ;
+         };
 
-		symbol_right_layer {
-			label = "symbol right";
-                       bindings = <
-&trans   &trans   &trans   &trans   &trans         &trans   &trans    &kp LPAR  &kp RPAR   &kp QMARK  &trans      &trans   
-&trans   &trans   &trans   &trans   &llht SYMRE T  &trans   &trans    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER  &trans   
-&trans   &trans   &trans   &trans   &trans         &trans   &trans    &kp LT    &kp GT     &kp SQT    &kp MINUS  &trans   
-&trans &trans &trans &trans &trans &trans
-                        >;
-                };
+ symbol_right_layer {
+ 	label = "symbol right";
+                bindings = <
+&trans   &trans   &trans         &trans   &kp LPAR  &kp RPAR   &kp QMARK  &kp UNDER
+&trans   &trans   &llht SYMRE T  &trans   &kp DOT   &kp COMMA  &kp FSLH   &kp MINUS
+         &trans   &trans         &trans   &kp LT    &kp GT     &kp SQT
+                 >;
+         };
 
-		symbol_right_ext_layer {
-			label = "symbol right ext";
-                       bindings = <
-&trans   &trans   &trans   &trans   &trans  &trans   &trans    &kp LBRC  &kp RBRC   &kp EXCL  &trans      &trans   
-&trans   &trans   &trans   &trans   &trans  &trans   &trans    &kp COLON   &kp EQUAL  &kp STAR   &kp PRCNT  &trans   
-&trans   &trans   &trans   &trans   &trans  &trans   &trans    &kp LBKT    &kp RBKT     &kp DQT    &kp PLUS  &trans   
-&trans &trans &trans &trans &trans &trans
-                        >;
-                };
+ symbol_right_ext_layer {
+ 	label = "symbol right ext";
+                bindings = <
+&trans   &trans   &trans  &trans   &kp LBRC  &kp RBRC   &kp EXCL  &kp PRCNT
+&trans   &trans   &trans  &trans   &kp COLON &kp EQUAL  &kp STAR  &kp PLUS 
+         &trans   &trans  &trans   &kp LBKT  &kp RBKT   &kp DQT
+                 >;
+         };
 
-		navigation_layer {
-			label = "navigation";
-                        bindings = <
-&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &trans  &trans   
-&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbup  &trans   
-&trans   &trans   &trans  &trans   &trans  &trans   &trans   &kp HOME   &trans     &kp END     &vbdn  &trans   
-&trans &trans &trans &trans &trans &trans
-                        >;
-                };
+ navigation_layer {
+ 	label = "navigation";
+                 bindings = <
+&trans  &trans   &trans  &trans   &kp PG_DN  &kp UP     &kp PG_UP   &vbup
+&trans  &trans   &trans  &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbdn
+        &trans   &trans  &trans   &kp HOME   &trans     &kp END
+                 >;
+         };
 
-                mouse_layer {
-			label = "mouse";
-                        bindings = <
-&trans   &trans     &kp LG(W)          &trans     &lmht LSHFT LG(P)  &trans   &trans   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &trans            &trans   
-&trans   &kp LG(Q)  &llht MOUX LG(R)   &tog MOU   &llht MOUX LG(T)   &trans   &trans   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkpht MOUX RCLK  &trans   
-&trans   &kp LG(A)  &kp LG(X)          &kp LG(C)  &kp LG(V)          &trans   &trans   &kp BSPC           &trans          &trans           &mkp LCLK         &trans   
-&trans &trans &trans &trans &trans &trans
-                        > ;
-                };
+         mouse_layer {
+ 	label = "mouse";
+                 bindings = <
+&kp LG(Q)  &kp LG(W)         &trans     &lmht LSHFT LG(P)   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &mkpht MOUX RCLK
+&kp LG(A)  &llht MOUX LG(R)  &tog MOU   &llht MOUX LG(T)    &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK       
+           &kp LG(X)         &kp LG(C)  &kp LG(V)           &kp BSPC           &trans          &trans
+                 > ;
+         };
 
 
-                mouse_ext_layer {
-			label = "mouse ext";
-                        bindings = <
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(T)  &kp LC(UP)  &kp LG(W)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LG(N)  &kp ESC     &kp LG(O)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp LEFT   &kp LG(R)   &kp RIGHT  &trans   &trans   
-&trans &trans &trans &trans &trans &trans
-                        > ;
-                };
-/*
-                mouse_ext_layer {
-			label = "mouse ext";
-                        bindings = <
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(A)  &kp HYPER(D)  &kp HYPER(G)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(B)  &kp HYPER(E)  &kp HYPER(H)  &trans   &trans   
-&trans   &trans   &trans  &trans  &trans  &trans   &trans   &kp HYPER(C)  &kp HYPER(F)  &kp HYPER(I)  &trans   &trans   
-&trans &trans &trans &trans &trans &trans
-                        > ;
-                };
-*/
+         mouse_ext_layer {
+ 	label = "mouse ext";
+                 bindings = <
+&trans  &trans  &trans  &trans   &kp LG(T)  &kp LC(UP)  &kp LG(W)  &trans
+&trans  &trans  &trans  &trans   &kp LG(N)  &kp ESC     &kp LG(O)  &trans
+        &trans  &trans  &trans   &kp LEFT   &kp LG(R)   &kp RIGHT
+                 > ;
+         };
 
-                fun_layer {
-			label = "function";
-                        bindings = <
-&trans   &trans   &kp F1  &kp F2  &kp F3  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&trans   &kp F11  &kp F4  &kp F5  &kp F6  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&trans   &kp F10  &kp F7  &kp F8  &kp F9  &trans     &trans   &trans  &trans  &trans  &trans  &trans   
-&trans &trans &trans &trans &trans &trans
+         fun_layer {
+ 	label = "function";
+                 bindings = <
+&kp F11  &kp F1  &kp F2  &kp F3   &trans  &trans  &trans  &trans   
+&kp F10  &kp F4  &kp F5  &kp F6   &trans  &trans  &trans  &trans   
+         &kp F7  &kp F8  &kp F9   &trans  &trans  &trans   
                         > ;
                 };
         };
