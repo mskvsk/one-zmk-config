@@ -191,16 +191,15 @@
 &lt { quick_tap_ms = <TAP_TERM_L_MS>; };
 &mt { quick_tap_ms = <TAP_TERM_M_MS>; };
 
-
 / {
         keymap {
                 compatible = "zmk,keymap";
                 default_layer {
 			label = "main";
                         bindings = <
-&kp Q   &kp W           &llht NAV F   &lmhts LSHFT P  &rmhts LSHFT L  &rlht FUN U   &kp Y              &kp Z
-&kp A   &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &kp I
-        &lmht LCTRL X   &lltg MOU C   &lmht LALT V    &rmht LALT M    &kp RET       &rmht LCTRL SPACE
+   &kp W           &llht NAV F   &lmhts LSHFT P  &rmhts LSHFT L  &rlht FUN U   &kp Y              
+&kp A   &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O &kp Z     
+&kp Q   &lmht LCTRL X   &lltg MOU C   &lmht LALT V    &rmht LALT M    &kp RET       &rmht LCTRL SPACE  &kp I
                  >;
          };
 
