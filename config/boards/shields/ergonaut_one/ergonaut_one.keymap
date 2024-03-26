@@ -206,18 +206,18 @@
          default_ext_left_layer {
  	label = "main ext left";
                  bindings = <
-&trans  &trans  &kp F  &trans  &kp J  &kp U   &kp Y      &kp Z
-&trans  &trans  &kp S  &trans  &kp H  &kp E   &kp O      &kp I
-        &trans  &kp C  &trans  &kp K  &kp RET &kp SPACE
+&trans  &trans  &kp F  &trans  &mt LS(J) J  &kp U   &kp Y      &kp Z
+&trans  &trans  &kp S  &trans  &mt LS(H) H  &kp E   &kp O      &kp I
+        &trans  &kp C  &trans  &mt LS(K) K  &kp RET &kp SPACE
                  >;
          };
 
          default_ext_right_layer {
  	label = "main ext right";
                  bindings = <
-&kp Q  &kp W   &kp F   &kp G   &trans   &kp U  &trans  &trans
-&kp A  &kp R   &kp S   &kp D   &trans   &kp E  &trans  &trans
-       &kp X   &kp C   &kp B   &trans   &trans &trans
+&kp Q  &kp W   &kp F   &mt LS(G) G  &trans   &kp U  &trans  &trans
+&kp A  &kp R   &kp S   &mt LS(D) D  &trans   &kp E  &trans  &trans
+       &kp X   &kp C   &mt LS(B) B  &trans   &trans &trans
                  >;
          };
 
@@ -242,9 +242,9 @@
  symbol_right_layer {
  	label = "symbol right";
                 bindings = <
-&trans   &trans   &trans         &trans   &kp LPAR  &kp RPAR   &kp QMARK  &kp UNDER
-&trans   &trans   &llht SYMRE T  &trans   &kp DOT   &kp COMMA  &kp FSLH   &kp MINUS
-         &trans   &trans         &trans   &kp LT    &kp GT     &kp SQT
+&trans   &trans  &trans  &trans          &kp LPAR  &kp RPAR   &kp QMARK  &kp UNDER
+&trans   &trans  &trans  &llht SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp MINUS
+         &trans  &trans  &trans          &kp LT    &kp GT     &kp SQT
                  >;
          };
 
