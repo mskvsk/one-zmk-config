@@ -189,7 +189,7 @@
 };
 
 &lt { quick_tap_ms = <TAP_TERM_L_MS>; };
-&mt { quick_tap_ms = <350>; };
+&mt { quick_tap_ms = <500>; };
 
 / {
         keymap {
