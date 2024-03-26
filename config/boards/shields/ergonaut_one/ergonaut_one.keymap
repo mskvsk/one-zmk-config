@@ -58,7 +58,7 @@
 #define SCROLL_RIGHT SCRL_X(U_MOUSE_SCROLL_MAX)
 
 #define HYPER(x) LC(LA(LS(LG(x))))
-
+monkeytypenegeGggrdG
 #define QUICK_TAP_MS 150
 #define TAP_TERM_L_MS 200
 #define TAP_TERM_M_MS 250
@@ -189,7 +189,7 @@
 };
 
 &lt { quick_tap_ms = <TAP_TERM_L_MS>; };
-&mt { quick_tap_ms = <TAP_TERM_M_MS>; };
+&mt { quick_tap_ms = <350>; };
 
 / {
         keymap {
