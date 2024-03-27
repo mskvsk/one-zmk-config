@@ -4,7 +4,7 @@
 if SHIELD_ERGONAUT_ONE_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "Ergonaut One"
+	default "Yuri"
 
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y

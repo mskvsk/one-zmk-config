@@ -87,6 +87,14 @@
             hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
         };
+        mht: mht { 
+            compatible = "zmk,behavior-hold-tap"; 
+			#binding-cells = <2>; 
+            flavor = "tap-preferred"; 
+            tapping-term-ms = <TAP_TERM_M_MS>; 
+            quick-tap-ms = <QUICK_TAP_MS>; 
+            bindings = <&kp>, <&kp>; 
+        };
         lmhts: lmhts { 
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
@@ -189,7 +197,7 @@
 };
 
 &lt { quick_tap_ms = <TAP_TERM_L_MS>; };
-&mt { quick_tap_ms = <1000>; };
+&mt { quick_tap_ms = <TAP_TERM_M_MS>; };
 
 / {
         keymap {
@@ -206,18 +214,18 @@
          default_ext_left_layer {
  	label = "main ext left";
                  bindings = <
-&trans  &trans  &kp F  &trans  &mt LS(J) J  &kp U   &kp Y      &kp Z
-&trans  &trans  &kp S  &trans  &mt LS(H) H  &kp E   &kp O      &kp I
-        &trans  &kp C  &trans  &mt LS(K) K  &kp RET &kp SPACE
+&trans  &trans  &kp F  &trans  &mht LS(J) J  &kp U   &kp Y      &kp Z
+&trans  &trans  &kp S  &trans  &mht LS(H) H  &kp E   &kp O      &kp I
+        &trans  &kp C  &trans  &mht LS(K) K  &kp RET &kp SPACE
                  >;
          };
 
          default_ext_right_layer {
  	label = "main ext right";
                  bindings = <
-&kp Q  &kp W   &kp F   &mt LS(G) G  &trans   &kp U  &trans  &trans
-&kp A  &kp R   &kp S   &mt LS(D) D  &trans   &kp E  &trans  &trans
-       &kp X   &kp C   &mt LS(B) B  &trans   &trans &trans
+&kp Q  &kp W   &kp F   &mht LS(G) G  &trans   &kp U  &trans  &trans
+&kp A  &kp R   &kp S   &mht LS(D) D  &trans   &kp E  &trans  &trans
+       &kp X   &kp C   &mht LS(B) B  &trans   &trans &trans
                  >;
          };
 
