@@ -72,13 +72,13 @@
         combo_ret {
             timeout-ms = <50>;
             key-positions = <20 21>;
-            layers = <DEF EXTR SYMR SYMRE NAV MOU MOUX>
+            layers = <DEF EXTR SYMR SYMRE NAV MOU MOUX>;
             bindings = <&kp RET>;
         };
         combo_esc {
             timeout-ms = <50>;
             key-positions = <20 21>;
-            layers = <EXTL>
+            layers = <EXTL>;
             bindings = <&kp ESC>;
         };
     };
@@ -249,8 +249,8 @@
  symbol_left_layer {
  	label = "symbol left";
                  bindings = <
-&kp GRAVE  &kp SEMI  &kp DLLR  &kp AT     &trans         &trans    &trans  &trans
-&kp TILDE  &kp BSLH  &kp EQUAL &kp COLON  &rlht SYMLE N  &trans    &trans  &trans
+&kp GRAVE  &kp BSLH  &kp DLLR  &kp AT     &trans         &trans    &trans  &trans
+&kp TILDE  &kp SEMI  &kp EQUAL &kp COLON  &rlht SYMLE N  &trans    &trans  &trans
            &kp PIPE  &kp AMPS  &kp HASH   &trans         &trans    &trans
                  > ;
          };
