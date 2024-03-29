@@ -69,14 +69,20 @@
 / {
     combos {
         compatible = "zmk,combos";
+        combo_ret {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            layers = <DEF EXTR SYMR SYMRE NAV MOU MOUX>
+            bindings = <&kp RET>;
+        };
         combo_esc {
             timeout-ms = <50>;
             key-positions = <20 21>;
-            bindings = <&kp RET>;
+            layers = <EXTL>
+            bindings = <&kp ESC>;
         };
     };
 };
-
  / { 
     behaviors { 
         lmht: lmht { 
@@ -95,14 +101,6 @@
             tapping-term-ms = <TAP_TERM_M_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
-            bindings = <&kp>, <&kp>; 
-        };
-        mht: mht { 
-            compatible = "zmk,behavior-hold-tap"; 
-			#binding-cells = <2>; 
-            flavor = "tap-preferred"; 
-            tapping-term-ms = <TAP_TERM_M_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&kp>, <&kp>; 
         };
         lmhts: lmhts { 
@@ -146,6 +144,14 @@
             tapping-term-ms = <TAP_TERM_L_MS>; 
             quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&tog>, <&kp>; 
+        }; 
+        cw: cw { 
+            compatible = "zmk,behavior-hold-tap"; 
+			#binding-cells = <2>; 
+            flavor = "balanced"; 
+            tapping-term-ms = <TAP_TERM_L_MS>; 
+            quick-tap-ms = <QUICK_TAP_MS>; 
+            bindings = <&caps_word>, <&kp>; 
         }; 
         rlht: rlht { 
             compatible = "zmk,behavior-hold-tap"; 
@@ -215,27 +221,28 @@
                 default_layer {
 			label = "main";
                         bindings = <
-&kp Q   &kp W           &llht NAV F   &lmhts LSHFT P  &rmhts LSHFT L  &rlht FUN U   &kp Y              &kp Z
-&kp A   &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &kp I
-        &lmht LCTRL X   &lltg MOU C   &lmht LALT V    &rmht LALT M    &kp BSPC      &rmht LCTRL SPACE
+&kp Q           &kp W           &kp F         &llht NAV P     &lltg MOU L     &rlht FUN U   &kp Y              &kp Z
+&lmhts LSHFT A  &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &rmhts LSHFT I
+                &lmht LCTRL X   &kp C         &lmht LALT V    &rmht LALT M    &kp BSPC      &rmht LCTRL SPACE
                  >;
          };
 
          default_ext_left_layer {
  	label = "main ext left";
                  bindings = <
-&trans  &trans  &kp F  &trans  &mht LS(J) J  &kp U   &kp Y      &kp Z
-&trans  &trans  &kp S  &trans  &mht LS(H) H  &kp E   &kp O      &kp I
-        &trans  &kp C  &trans  &mht LS(K) K  &kp RET &kp SPACE
+&trans  &trans  &kp F  &trans  &kp J  &kp U    &kp Y    &kp Z
+&trans  &trans  &kp S  &trans  &kp H  &kp E    &kp O    &cw LSHFT I
+        &trans  &kp C  &trans  &kp K  &kp DEL  &kp TAB
                  >;
-         };
+         }; 
+
 
          default_ext_right_layer {
  	label = "main ext right";
                  bindings = <
-&kp Q  &kp W   &kp F   &mht LS(G) G  &trans   &kp U  &trans  &trans
-&kp A  &kp R   &kp S   &mht LS(D) D  &trans   &kp E  &trans  &trans
-       &kp X   &kp C   &mht LS(B) B  &trans   &trans &trans
+&kp Q  &kp W  &kp F  &kp G  &trans  &kp U  &trans  &trans
+&kp A  &kp R  &kp S  &kp D  &trans  &kp E  &trans  &trans
+       &kp X  &kp C  &kp B  &trans  &trans &trans
                  >;
          };
 
@@ -243,7 +250,7 @@
  	label = "symbol left";
                  bindings = <
 &kp GRAVE  &kp SEMI  &kp DLLR  &kp AT     &trans         &trans    &trans  &trans
-&kp DEL    &kp TAB   &kp ESC   &kp BSPC   &rlht SYMLE N  &trans    &trans  &trans
+&kp TILDE  &kp BSLH  &kp EQUAL &kp COLON  &rlht SYMLE N  &trans    &trans  &trans
            &kp PIPE  &kp AMPS  &kp HASH   &trans         &trans    &trans
                  > ;
          };
@@ -251,9 +258,9 @@
  symbol_left_ext_layer {
  	label = "symbol left ext";
                  bindings = <
-&trans  &mt BSLH N1  &mt TILDE N2  &mt CARET N3   &trans  &trans  &trans  &trans
-&kp N0  &kp N4       &kp N5        &kp N6         &trans  &trans  &trans  &trans
-        &kp N7       &kp N8        &kp N9         &trans  &trans  &trans
+&trans  &kp N1  &kp N2  &kp N3   &trans  &trans  &trans  &trans
+&kp N0  &kp N4  &kp N5  &kp N6   &trans  &trans  &trans  &trans
+        &kp N7  &kp N8  &kp N9   &trans  &trans  &trans
                  > ;
          };
 
@@ -270,7 +277,7 @@
  	label = "symbol right ext";
                 bindings = <
 &trans   &trans   &trans  &trans   &kp LBRC  &kp RBRC   &kp EXCL  &kp PRCNT
-&trans   &trans   &trans  &trans   &kp COLON &kp EQUAL  &kp STAR  &kp PLUS 
+&trans   &trans   &trans  &trans   &trans    &kp CARET  &kp STAR  &kp PLUS 
          &trans   &trans  &trans   &kp LBKT  &kp RBKT   &kp DQT
                  >;
          };
@@ -289,7 +296,7 @@
                  bindings = <
 &kp LG(Q)  &kp LG(W)         &trans     &lmht LSHFT LG(P)   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &mkpht MOUX RCLK
 &kp LG(A)  &llht MOUX LG(R)  &tog MOU   &llht MOUX LG(T)    &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK       
-           &kp LG(X)         &kp LG(C)  &kp LG(V)           &kp BSPC           &trans          &trans
+           &kp LG(X)         &kp LG(C)  &kp LG(V)           &kp LG(M)           &trans          &trans
                  > ;
          };
 
