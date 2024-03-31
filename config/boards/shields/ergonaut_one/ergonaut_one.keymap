@@ -232,7 +232,7 @@ lmht: lmht {
                  bindings = <
 &trans  &trans  &kp F  &trans  &kp J  &kp U    &kp Y    &kp Z
 &trans  &trans  &kp S  &trans  &kp H  &kp E    &kp O    &cw LSHFT I
-        &trans  &kp C  &trans  &kp K  &kp DEL  &kp TAB
+        &trans  &kp C  &trans  &kp K  &kp DEL  &kp SPACE
                  >;
          }; 
 
@@ -250,7 +250,7 @@ lmht: lmht {
  	label = "symbol left";
                  bindings = <
 &kp GRAVE  &kp BSLH  &kp DLLR  &kp AT     &trans         &trans    &trans  &trans
-&kp TILDE  &kp SEMI  &kp EQUAL &kp COLON  &rlht SYMLE N  &trans    &trans  &trans
+&kp COLON  &kp EQUAL &kp DQT   &kp SQT    &rlht SYMLE N  &trans    &trans  &trans
            &kp PIPE  &kp AMPS  &kp HASH   &trans         &trans    &trans
                  > ;
          };
@@ -258,9 +258,9 @@ lmht: lmht {
  symbol_left_ext_layer {
  	label = "symbol left ext";
                  bindings = <
-&trans  &kp N1  &kp N2  &kp N3   &trans  &trans  &trans  &trans
-&kp N0  &kp N4  &kp N5  &kp N6   &trans  &trans  &trans  &trans
-        &kp N7  &kp N8  &kp N9   &trans  &trans  &trans
+&kp N0   &kp N1  &kp N2  &kp N3   &trans  &trans  &trans  &trans
+&kp SEMI &kp N4  &kp N5  &kp N6   &trans  &trans  &trans  &trans
+         &kp N7  &kp N8  &kp N9   &trans  &trans  &trans
                  > ;
          };
 
@@ -269,7 +269,7 @@ lmht: lmht {
                 bindings = <
 &trans   &trans  &trans  &trans          &kp LPAR  &kp RPAR   &kp QMARK  &kp UNDER
 &trans   &trans  &trans  &llht SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp MINUS
-         &trans  &trans  &trans          &kp LT    &kp GT     &kp SQT
+         &trans  &trans  &trans          &kp LT    &kp GT     &trans
                  >;
          };
 
@@ -277,8 +277,8 @@ lmht: lmht {
  	label = "symbol right ext";
                 bindings = <
 &trans   &trans   &trans  &trans   &kp LBRC  &kp RBRC   &kp EXCL  &kp PRCNT
-&trans   &trans   &trans  &trans   &trans    &kp CARET  &kp STAR  &kp PLUS 
-         &trans   &trans  &trans   &kp LBKT  &kp RBKT   &kp DQT
+&trans   &trans   &trans  &trans   &kp TAB   &kp CARET  &kp STAR  &kp PLUS 
+         &trans   &trans  &trans   &kp LBKT  &kp RBKT   &kp TILDE
                  >;
          };
 
