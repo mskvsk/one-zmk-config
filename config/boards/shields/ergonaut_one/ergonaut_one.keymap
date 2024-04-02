@@ -90,7 +90,6 @@ lmht: lmht {
 #binding-cells = <2>; 
 		  flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_M_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_R>; 
             bindings = <&kp>, <&kp>; 
         }; 
@@ -99,7 +98,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_M_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
         };
@@ -108,7 +106,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_M_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>;
             hold-trigger-key-positions = <KEYS_R>; 
             bindings = <&kp>, <&kp>; 
         }; 
@@ -117,7 +114,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_M_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             hold-trigger-key-positions = <KEYS_L>; 
             bindings = <&kp>, <&kp>; 
         };
@@ -126,7 +122,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_L_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
         llhtl: llhtl { 
@@ -134,7 +129,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_LONG_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
         lltg: lltg { 
@@ -142,7 +136,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_L_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&tog>, <&kp>; 
         }; 
         cw: cw { 
@@ -158,7 +151,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_L_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
         rlhtl: rlhtl { 
@@ -166,7 +158,6 @@ lmht: lmht {
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_LONG_MS>; 
-            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
 
@@ -221,7 +212,7 @@ lmht: lmht {
                 default_layer {
 			label = "main";
                         bindings = <
-&kp Q           &kp W           &kp F         &llht NAV P     &lltg MOU L     &rlht FUN U   &kp Y              &kp Z
+&kp Q           &kp W           &llht MOU F   &llht NAV P     &lltg MOU L     &rlht FUN U   &lltg NAV Y        &kp Z
 &lmhts LSHFT A  &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &rmhts LSHFT I
                 &lmht LCTRL X   &kp C         &lmht LALT V    &rmht LALT M    &kp BSPC      &rmht LCTRL SPACE
                  >;
@@ -245,7 +236,7 @@ lmht: lmht {
        &kp X  &kp C  &kp B  &trans  &trans &trans
                  >;
          };
-
+		 
  symbol_left_layer {
  	label = "symbol left";
                  bindings = <
@@ -285,9 +276,9 @@ lmht: lmht {
  navigation_layer {
  	label = "navigation";
                  bindings = <
-&trans  &trans   &trans  &trans   &kp PG_DN  &kp UP     &kp PG_UP   &vbup
-&trans  &trans   &trans  &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbdn
-        &trans   &trans  &trans   &kp HOME   &trans     &kp END
+&trans  &trans   &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &vbup
+&trans  &trans   &tog NAV &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbdn
+        &trans   &trans   &trans   &kp HOME   &trans     &kp END
                  >;
          };
 
