@@ -72,13 +72,11 @@
         combo_ret {
 			timeout-ms = <80>;
 			key-positions = <20 21>;
-			layers = <DEF EXTR SYMR SYMRE NAV MOU MOUX>;
 			bindings = <&kp RET>;
 		};
 		combo_esc {
 			timeout-ms = <80>;
-			key-positions = <20 21>;
-			layers = <EXTL>;
+			key-positions = <19 20>;
 			bindings = <&kp ESC>;
 		};
 	};
@@ -278,7 +276,7 @@ lmht: lmht {
                  bindings = <
 &trans  &trans   &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &vbup
 &trans  &trans   &tog NAV &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbdn
-        &trans   &trans   &trans   &kp HOME   &trans     &kp END
+        &trans   &trans   &trans   &kp HOME   &kp END    &trans
                  >;
          };
 
@@ -295,9 +293,9 @@ lmht: lmht {
          mouse_ext_layer {
  	label = "mouse ext";
                  bindings = <
-&trans  &trans  &trans  &trans   &kp LG(T)  &kp LC(UP)  &kp LG(W)  &trans
-&trans  &trans  &trans  &trans   &kp LG(N)  &kp ESC     &kp LG(O)  &trans
-        &trans  &trans  &trans   &kp LEFT   &kp LG(R)   &kp RIGHT
+&trans  &trans  &trans  &trans   &kp LG(T)  &kp LC(UP)   &kp LG(W)  &trans
+&trans  &trans  &trans  &trans   &kp LG(N)  &kp LC(DOWN) &kp LG(O)  &trans
+        &trans  &trans  &trans   &kp LEFT   &kp LG(R)    &kp RIGHT
                  > ;
          };
 
