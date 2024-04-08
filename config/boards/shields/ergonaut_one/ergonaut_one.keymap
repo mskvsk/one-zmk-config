@@ -275,7 +275,7 @@ lmht: lmht {
  	label = "navigation";
                  bindings = <
 &trans  &trans   &trans   &trans   &kp PG_DN  &kp UP     &kp PG_UP   &vbup
-&trans  &trans   &tog NAV &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbdn
+&trans  &trans   &to DEF  &trans   &kp LEFT   &kp DOWN   &kp RIGHT   &vbdn
         &trans   &trans   &trans   &kp HOME   &kp END    &trans
                  >;
          };
@@ -283,9 +283,9 @@ lmht: lmht {
          mouse_layer {
  	label = "mouse";
                  bindings = <
-&kp LG(Q)  &kp LG(W)         &trans     &lmht LSHFT LG(P)   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &mkpht MOUX RCLK
-&kp LG(A)  &llht MOUX LG(R)  &tog MOU   &llht MOUX LG(T)    &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK       
-           &kp LG(X)         &kp LG(C)  &kp LG(V)           &kp LG(M)           &trans          &trans
+&kp LG(Q)  &kp LG(W)  &trans     &lmht LSHFT LG(P)   &msc SCROLL_DOWN   &mmv MOVE_UP    &msc SCROLL_UP   &mkpht MOUX RCLK
+&kp LG(A)  &kp LG(R)  &to DEF    &llht MOUX LG(T)    &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK       
+           &kp LG(X)  &kp LG(C)  &kp LG(V)           &kp LG(M)          &trans          &trans
                  > ;
          };
 
