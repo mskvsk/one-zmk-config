@@ -219,7 +219,7 @@
 			label = "main";
                         bindings = <
 &kp Q           &kp W           &llht MOU F   &llht NAV P     &lltg MOU L     &rlht FUN U   &lltg NAV Y        &kp Z
-&lmhts LSHFT A  &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA I      &rmhts LSHFT O
+&lmhts LSHFT A  &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &rmhts LSHFT I
                 &lmht LCTRL X   &kp C         &lmht LALT V    &rmht LALT M    &kp BSPC      &rmht LCTRL SPACE
                  >;
          };
@@ -228,7 +228,7 @@
  	label = "main ext left";
                  bindings = <
 &trans  &trans  &kp F  &trans  &kp J  &kp U    &kp Y    &kp Z
-&trans  &trans  &kp S  &trans  &kp H  &kp E    &kp I    &cw LSHFT O
+&trans  &trans  &kp S  &trans  &kp H  &kp E    &kp O    &cw LSHFT I
         &trans  &kp C  &trans  &kp K  &kp DEL  &kp SPACE
                  >;
          }; 
