@@ -89,6 +89,21 @@
 		};
 	};
 };
+
+#define C(name, k1, k2) \
+    / { \
+        macros { \
+            name: name{ \
+                compatible = "zmk,behavior-macro"; \
+                #binding-cells = <0>; \
+                bindings = <&macro_tap &kp k1 &kp k2>; \
+            }; \
+        }; \
+    };
+
+C(csa, S, A)
+C(csz, S, Z)
+
 / { 
 	behaviors { 
         lmht: lmht { 
@@ -141,7 +156,7 @@
             compatible = "zmk,behavior-hold-tap"; 
 			#binding-cells = <2>; 
             flavor = "balanced"; 
-            tapping-term-ms = <TAP_TERM_L_MS>; 
+            tapping-term-ms = <TAP_TERM_LONG_MS>; 
             bindings = <&tog>, <&kp>; 
         }; 
         cw: cw { 
@@ -157,6 +172,7 @@
 			#binding-cells = <2>; 
             flavor = "balanced"; 
             tapping-term-ms = <TAP_TERM_L_MS>; 
+            quick-tap-ms = <QUICK_TAP_MS>; 
             bindings = <&mo>, <&kp>; 
         }; 
         rlhtl: rlhtl { 
@@ -261,8 +277,8 @@
  symbol_right_layer {
  	label = "symbol right";
                 bindings = <
-&trans   &trans  &trans  &trans          &kp LPAR  &kp RPAR   &kp QMARK  &kp MINUS
-&trans   &trans  &trans  &llht SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER
+&csa   &trans  &trans  &trans          &kp LPAR  &kp RPAR   &kp QMARK  &kp MINUS
+&csz   &trans  &trans  &llht SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER
          &trans  &trans  &trans          &kp LT    &kp GT     &trans
                  >;
          };
