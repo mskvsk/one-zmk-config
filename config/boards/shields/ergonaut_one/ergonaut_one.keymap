@@ -101,8 +101,38 @@
         }; \
     };
 
+#define BGRMLLHT(namem, nameb, k1, k2) \
+    / { \
+        macros { \
+            namem: namem{ \
+                compatible = "zmk,behavior-macro"; \
+                #binding-cells = <0>; \
+                bindings = <&macro_tap &kp k1 &kp k2>; \
+            }; \
+        }; \
+	    behaviors { \
+            nameb: nameb { \
+                compatible = "zmk,behavior-hold-tap"; \ 
+			    #binding-cells = <2>; \
+                flavor = "balanced"; \
+                tapping-term-ms = <TAP_TERM_L_MS>; \
+                bindings = <&mo>, <&namem>; \
+            }; \
+        }; \
+    };
+
+
+
+
+
 BGRM(csa, S, A)
 BGRM(csz, S, Z)
+BGRM(csw, S, W)
+BGRM(csr, S, R)
+BGRM(csx, S, X)
+BGRM(csp, S, P)
+BGRMLLHT(cst_, cst, S, T)
+BGRM(csv, S, V)
 
 / { 
 	behaviors { 
@@ -277,9 +307,9 @@ BGRM(csz, S, Z)
  symbol_right_layer {
  	label = "symbol right";
                 bindings = <
-&csa   &trans  &trans  &trans          &kp LPAR  &kp RPAR   &kp QMARK  &kp MINUS
-&csz   &trans  &trans  &llht SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER
-         &trans  &trans  &trans          &kp LT    &kp GT     &trans
+&csa   &csw  &trans  &csp            &kp LPAR  &kp RPAR   &kp QMARK  &kp MINUS
+&csz   &csr  &trans  &cst SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER
+       &csx  &trans  &csv            &kp LT    &kp GT     &trans
                  >;
          };
 
