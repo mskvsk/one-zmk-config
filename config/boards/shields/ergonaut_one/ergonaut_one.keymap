@@ -101,7 +101,7 @@
         }; \
     };
 
-#define BGRMLLHT(namem, nameb, k1, k2) \
+#define BGRMLHT(namem, nameb, k1, k2) \
     / { \
         macros { \
             namem: namem{ \
@@ -125,14 +125,24 @@
 
 
 
-BGRM(csa, S, A)
-BGRM(csz, S, Z)
-BGRM(csw, S, W)
-BGRM(csr, S, R)
-BGRM(csx, S, X)
-BGRM(csp, S, P)
-BGRMLLHT(cst_, cst, S, T)
-BGRM(csv, S, V)
+BGRM(bsa, S, A)
+BGRM(bsz, S, Z)
+BGRM(bsw, S, W)
+BGRM(bsr, S, R)
+BGRM(bsx, S, X)
+BGRM(bsp, S, P)
+BGRMLHT(bst_, bst, S, T)
+BGRM(bsv, S, V)
+
+
+BGRM(bel, E, L)
+BGRMLHT(ben_, ben, B, N)
+BGRM(bem, E, M)
+BGRM(bey, E, Y)
+BGRM(beo, E, O)
+BGRM(besp, E, SPACE)
+BGRM(bei, E, I)
+BGRM(beq, E, Q)
 
 / { 
 	behaviors { 
@@ -289,9 +299,9 @@ BGRM(csv, S, V)
  symbol_left_layer {
  	label = "symbol left";
                  bindings = <
-&kp COLON  &kp BSLH  &kp DLLR  &kp AT     &trans         &trans    &trans  &trans
-&kp GRAVE  &kp EQUAL &kp DQT   &kp SQT    &rlht SYMLE N  &trans    &trans  &trans
-           &kp PIPE  &kp AMPS  &kp HASH   &trans         &trans    &trans
+&kp COLON  &kp BSLH  &kp DLLR  &kp AT     &bel         &trans    &bey  &bei
+&kp GRAVE  &kp EQUAL &kp DQT   &kp SQT    &ben SYMLE N &trans    &beo  &beq
+           &kp PIPE  &kp AMPS  &kp HASH   &bem         &trans    &besp
                  > ;
          };
 
@@ -307,9 +317,9 @@ BGRM(csv, S, V)
  symbol_right_layer {
  	label = "symbol right";
                 bindings = <
-&csa   &csw  &trans  &csp            &kp LPAR  &kp RPAR   &kp QMARK  &kp MINUS
-&csz   &csr  &trans  &cst SYMRE T   &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER
-       &csx  &trans  &csv            &kp LT    &kp GT     &trans
+&bsa   &bsw  &trans  &bsp            &kp LPAR  &kp RPAR   &kp QMARK  &kp MINUS
+&bsz   &bsr  &trans  &bst SYMRE T    &kp DOT   &kp COMMA  &kp FSLH   &kp UNDER
+       &bsx  &trans  &bsv            &kp LT    &kp GT     &trans
                  >;
          };
 
