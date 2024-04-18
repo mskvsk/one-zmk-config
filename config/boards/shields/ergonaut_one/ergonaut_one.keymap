@@ -83,7 +83,7 @@
 		};
 		combo_def {
 			timeout-ms = <80>;
-			key-positions = <4 6>;
+			key-positions = <19 20 21>;
             layers = <DEF NAV MOU MOUX>;
 			bindings = <&to DEF>;
 		};
@@ -218,12 +218,11 @@
                 default_layer {
 			label = "main";
                         bindings = <
-&kp Q           &kp W           &llht MOU F   &llht NAV P     &lltg MOU L     &rlht FUN U   &lltg NAV Y        &kp Z
-&lmhts LSHFT A  &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &rmhts LSHFT I
+&lmhts LSHFT A  &kp W           &llht MOU F   &llht NAV P     &lltg MOU L     &rlht FUN U   &lltg NAV Y        &rmhts LSHFT I
+&kp Z           &lmht LMETA R   &llht SYMR S  &llhtl EXTL T   &rlhtl EXTR N   &rlht SYML E  &rmht LMETA O      &kp Q
                 &lmht LCTRL X   &kp C         &lmht LALT V    &rmht LALT M    &kp BSPC      &rmht LCTRL SPACE
                  >;
          };
-
          default_ext_left_layer {
  	label = "main ext left";
                  bindings = <
@@ -232,8 +231,6 @@
         &trans  &kp C  &trans  &kp K  &kp DEL  &kp SPACE
                  >;
          }; 
-
-
          default_ext_right_layer {
  	label = "main ext right";
                  bindings = <
