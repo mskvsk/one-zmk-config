@@ -136,7 +136,7 @@ BGRM(bsv, S, V)
 
 
 BGRM(bel, E, L)
-BGRMLHT(ben_, ben, B, N)
+BGRMLHT(ben_, ben, E, N)
 BGRM(bem, E, M)
 BGRM(bey, E, Y)
 BGRM(beo, E, O)
