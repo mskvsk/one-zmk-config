@@ -90,7 +90,7 @@
 	};
 };
 
-#define C(name, k1, k2) \
+#define BGRM(name, k1, k2) \
     / { \
         macros { \
             name: name{ \
@@ -101,8 +101,8 @@
         }; \
     };
 
-C(csa, S, A)
-C(csz, S, Z)
+BGRM(csa, S, A)
+BGRM(csz, S, Z)
 
 / { 
 	behaviors { 
